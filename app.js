@@ -1,17 +1,9 @@
+// ✅ тест: скрипт загрузился
 alert("app.js подключился ✅");
-const $ = (s) alert("app.js подключился ✅");
 
-const openSettingsBtn = document.getElementById("openSettings");
-
-if (openSettingsBtn) {
-  openSettingsBtn.addEventListener("click", () => {
-    alert("Настройки нажаты");
-  });
-}
-=> document.querySelector(s);
+// удобные функции
+const $ = (s) => document.querySelector(s);
 const $$ = (s) => Array.from(document.querySelectorAll(s));
-
-const LS_KEY = "my_finance_transactions_v1";
 
 const CATEGORIES = [
   { id: "products", name: "Продукты", icon: "🛒" },
