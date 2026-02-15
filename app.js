@@ -340,3 +340,6 @@ function init(){
 }
 
 init();
+document.getElementById('openSettings')?.addEventListener('click', () => {
+  alert('Настройки скоро будут 🙂');
+});
