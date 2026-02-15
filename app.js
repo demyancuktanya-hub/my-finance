@@ -1,3 +1,4 @@
+alert("app.js подключился ✅");
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => Array.from(document.querySelectorAll(s));
 
