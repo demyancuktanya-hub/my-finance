@@ -1,5 +1,6 @@
-// ✅ тест: скрипт загрузился
 alert("app.js подключился ✅");
+
+const $ = (s) => document.querySelector(s);
 
 // удобные функции
 const $ = (s) => document.querySelector(s);
