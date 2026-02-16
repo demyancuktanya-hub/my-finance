@@ -1,7 +1,11 @@
-console.log("app.js подключился ✅");
+// app.js
+
+alert("app.js подключился ✅");
 
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => Array.from(document.querySelectorAll(s));
+
+const LS_KEY = "my_finance_transactions_v1";
 
 const CATEGORIES = [
   { id: "products", name: "Продукты", icon: "🛒" },
