@@ -356,6 +356,7 @@ document.getElementById("openSettings")?.addEventListener("click", () => {
   alert("Настройки скоро будут 🙂");
 });
 
+
   // First render
   setPage("overview");
 init();
