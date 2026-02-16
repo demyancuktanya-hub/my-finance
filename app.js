@@ -360,6 +360,4 @@ document.getElementById("openSettings")?.addEventListener("click", () => {
   // First render
   setPage("overview");
 init();
-document.getElementById('openSettings')?.addEventListener('click', () => {
-  alert('Настройки скоро будут 🙂');
-});
+
