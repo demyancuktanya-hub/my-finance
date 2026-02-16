@@ -350,9 +350,7 @@ $("#btnShare")?.addEventListener("click", async () => {
   } catch (e) {
     console.log(e);
   }
-});
-
-}              
+});         
 
 // First render
 setPage("overview");
