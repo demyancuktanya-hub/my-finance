@@ -337,31 +337,27 @@ document.getElementById("saveTx").addEventListener("click", () => {
   });
      
 // Share
-     $("#btnShare").addEventListener("click", async () => {
-  try {
-    const url = location.href;
+document.getElementById("btnShare")?.addEventListener("click", async () => {
+  const url = location.href;
 
+  try {
     if (navigator.share) {
       await navigator.share({
         title: "Мои финансы",
-        text: "Мой финансовый трекер",
+        text: "Мои финансы",
         url
       });
-    } else {
+    } else if (navigator.clipboard) {
       await navigator.clipboard.writeText(url);
       alert("Ссылка скопирована!");
+    } else {
+      prompt("Скопируйте ссылку:", url);
     }
-
   } catch (e) {
     console.log(e);
   }
 });
 
-
 // First render
 setPage("overview");
 init();
-
-
-
-
