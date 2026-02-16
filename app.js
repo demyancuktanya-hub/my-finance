@@ -280,7 +280,7 @@ function init(){
     return;
   }
 
-  // остальной код сохранения оставить как был
+  
 });
 
     if(!amount || amount <= 0){
