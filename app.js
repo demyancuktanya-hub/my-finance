@@ -272,31 +272,34 @@ function init(){
   renderCats();
 
   document.getElementById("saveTx").addEventListener("click", () => {
-
-  const amount = Number(String(document.getElementById("amountInput").value).replace(",", "."));
+// Save transaction
+document.getElementById("saveTx").addEventListener("click", () => {
+  const amount = Number(
+    String(document.getElementById("amountInput").value).replace(",", ".")
+  );
 
   if (!amount || amount <= 0) {
     alert("Введите сумму больше 0");
     return;
   }
 
-  
+  const note = (document.getElementById("noteInput").value || "").trim();
+
+  const t = {
+    id: crypto?.randomUUID ? crypto.randomUUID() : String(Date.now()),
+    type: selectedType,
+    amount: Math.round(amount),
+    categoryId: selectedCategoryId,
+    note,
+    createdAt: nowISO()
+  };
+
+  transactions.push(t);
+  saveTransactions();
+  closeModal();
+  render();
 });
 
-    if(!amount || amount <= 0){
-      alert("Введите сумму больше 0");
-      return;
-    }
-    const note = ($("#noteInput").value || "").trim();
-
-    const t = {
-      id: crypto?.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2),
-      type: selectedType,
-      amount: Math.round(amount),
-      categoryId: selectedCategoryId,
-      note,
-      createdAt: nowISO()
-    };
     tx.push(t);
     saveTx(tx);
 
