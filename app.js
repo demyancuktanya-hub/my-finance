@@ -271,8 +271,8 @@ function init(){
   // Categories
   renderCats();
 
-  // Save transaction
-document.getElementById("saveTx").addEventListener("click", () => {
+  document.getElementById("saveTx").addEventListener("click", () => {
+
   const amount = Number(String(document.getElementById("amountInput").value).replace(",", "."));
 
   if (!amount || amount <= 0) {
