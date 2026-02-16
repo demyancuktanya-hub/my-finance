@@ -355,6 +355,7 @@ $("#btnShare")?.addEventListener("click", async () => {
 // First render
 setPage("overview");
 init();
+});
 
 
 
