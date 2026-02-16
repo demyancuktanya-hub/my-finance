@@ -304,7 +304,7 @@ document.getElementById("saveTx").addEventListener("click", () => {
     saveTx(tx);
 
     closeModal();
-    renderOverview();
+    
     renderHistory();
     renderAnalysis();
   });
