@@ -1,8 +1,5 @@
-alert("app.js подключился ✅");
+console.log("app.js подключился ✅");
 
-const $ = (s) => document.querySelector(s);
-
-// удобные функции
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => Array.from(document.querySelectorAll(s));
 
