@@ -337,17 +337,24 @@ document.getElementById("saveTx").addEventListener("click", () => {
   });
 
   // Share
-  $("#btnShare").addEventListener("click", async ()=>{
+$("#btnShare").addEventListener("click", async () => {
+  try {
     const url = location.href;
-    try{
-      if(navigator.share) {
-        await navigator.share({ title: "Мои финансы", url });
-      } else {
-        await navigator.clipboard.writeText(url);
-        alert("Ссылка скопирована!");
-      }
-    }catch{}
-  });
+
+    if (navigator.share) {
+      await navigator.share({ title: "Мои финансы", url });
+    } else {
+      await navigator.clipboard.writeText(url);
+      alert("Ссылка скопирована!");
+    }
+  } catch (e) {
+    console.log(e);
+  }
+});
+
+document.getElementById("openSettings")?.addEventListener("click", () => {
+  alert("Настройки скоро будут 🙂");
+});
 
   // First render
   setPage("overview");
