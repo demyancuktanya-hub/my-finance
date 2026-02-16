@@ -1,6 +1,6 @@
 // app.js
 
-alert("app.js подключился ✅");
+console.log("app.js подключился ✅");
 
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => Array.from(document.querySelectorAll(s));
@@ -10,14 +10,14 @@ const LS_KEY = "my_finance_transactions_v1";
 const CATEGORIES = [
   { id: "products", name: "Продукты", icon: "🛒" },
   { id: "fuel", name: "Бензин", icon: "⛽" },
-  { id: "insurance", name: "Страховка", icon: "🛡️" },
+  { id: "insurance", name: "Страховка", icon: "🛡" },
   { id: "transport", name: "Транспорт", icon: "🚗" },
   { id: "home", name: "Жильё", icon: "🏠" },
   { id: "clothes", name: "Одежда", icon: "👗" },
   { id: "health", name: "Здоровье", icon: "💊" },
   { id: "fun", name: "Развлечения", icon: "🎮" },
   { id: "subs", name: "Подписки", icon: "📱" },
-  { id: "other", name: "Другое", icon: "📦" },
+  { id: "other", name: "Другое", icon: "📦" }
 ];
 
 function rub(n){
