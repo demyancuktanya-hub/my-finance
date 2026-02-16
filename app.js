@@ -335,9 +335,9 @@ document.getElementById("saveTx").addEventListener("click", () => {
   $("#btnSettings").addEventListener("click", ()=>{
     alert("Настройки можно добавить следующими: валюта, тема, экспорт/импорт данных.");
   });
-
-  // Share
-$("#btnShare").addEventListener("click", async () => {
+     
+// Share
+$("#btnShare")?.addEventListener("click", async () => {
   try {
     const url = location.href;
 
@@ -350,8 +350,7 @@ $("#btnShare").addEventListener("click", async () => {
   } catch (e) {
     console.log(e);
   }
-
-  });          
+});
 
 }              
 
