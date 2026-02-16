@@ -272,8 +272,8 @@ function init(){
   renderCats();
 
   // Save transaction
-  $("#saveTx").addEventListener("click", ()=>{
-    const amount = Number(String($("#amountInput").value).replace(/\s/g,"").replace(",","."));
+  document.getElementById("saveTx").addEventListener("click",
+  const amount = Number(String($("#amountInput").value).replace(/\s/g,"").replace(",","."));
     if(!amount || amount <= 0){
       alert("Введите сумму больше 0");
       return;
