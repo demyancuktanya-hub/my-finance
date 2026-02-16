@@ -361,7 +361,6 @@ document.getElementById("saveTx").addEventListener("click", () => {
 // First render
 setPage("overview");
 init();
-});
 
 
 
