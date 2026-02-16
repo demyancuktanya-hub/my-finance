@@ -356,7 +356,3 @@ $("#btnShare").addEventListener("click", async () => {
 setPage("overview");
 init();
 
-document.getElementById('openSettings')?.addEventListener('click', () => {
-  alert('Настройки скоро будут 🙂');
-});
-
