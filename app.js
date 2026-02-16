@@ -307,7 +307,6 @@ document.getElementById("saveTx").addEventListener("click", () => {
     
     renderHistory();
     renderAnalysis();
-
   // Search
   $("#searchInput").addEventListener("input", renderHistory);
 
