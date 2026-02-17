@@ -16,6 +16,17 @@ const CATEGORIES = [
   { id: "other", name: "Другое", icon: "📦" },
 ];
 
+
+// ===== КАТЕГОРИИ ДОХОДА =====
+
+const INCOME_CATEGORIES = [
+  { key: "salary", name: "Зарплата", icon: "💼" },
+  { key: "gift", name: "Подарки", icon: "🎁" },
+  { key: "freelance", name: "Фриланс", icon: "💻" },
+  { key: "cashback", name: "Кэшбэк", icon: "🏦" },
+  { key: "other_income", name: "Прочее", icon: "💰" }
+];
+
 function rub(n){
   const sign = n < 0 ? "-" : "";
   const v = Math.abs(Math.round(n));
