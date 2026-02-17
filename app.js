@@ -301,9 +301,7 @@ $("#openAdd").addEventListener("click", () => {
   $("#modal").addEventListener("click", (e) => {
   if (e.target.id === "modal") closeModal();
 });
-
-
-  // Segmented type (Расход / Доход)
+// Segmented type (Расход / Доход)
 $$(".seg").forEach(b => {
   b.addEventListener("click", () => {
     $$(".seg").forEach(x => x.classList.remove("active"));
