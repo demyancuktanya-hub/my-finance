@@ -292,14 +292,19 @@ function init(){
   $("#modal").addEventListener("click", (e)=> { if(e.target.id === "modal") closeModal(); });
 
   // Segmented type
-  $$(".seg").forEach(b => b.addEventListener("click", ()=>{
-    $$(".seg").forEach(x=>x.classList.remove("active"));
-    b.classList.add("active");
-    selectedType = b.dataset.type;
-  }));
+  $$(".seg").forEach(b => b.addEventListener("click", () => {
+  $$(".seg").forEach(x => x.classList.remove("active"));
+  b.classList.add("active");
+  selectedType = b.dataset.type;
 
-  // Categories
-  renderCats();
+  if (selectedType === "income") {
+    renderCategories(INCOME_CATEGORIES);
+  } else {
+    renderCategories(CATEGORIES);
+  }
+}));
+renderCategories(CATEGORIES);
+
 
   // Save transaction
   $("#saveTx").addEventListener("click", ()=>{
