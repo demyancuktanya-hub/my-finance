@@ -291,19 +291,25 @@ function init(){
   $("#closeAdd").addEventListener("click", closeModal);
   $("#modal").addEventListener("click", (e)=> { if(e.target.id === "modal") closeModal(); });
 
-  // Segmented type
-  $$(".seg").forEach(b => b.addEventListener("click", () => {
-  $$(".seg").forEach(x => x.classList.remove("active"));
-  b.classList.add("active");
-  selectedType = b.dataset.type;
+  // Segmented type (Расход / Доход)
+$$(".seg").forEach(b => {
+  b.addEventListener("click", () => {
+    $$(".seg").forEach(x => x.classList.remove("active"));
+    b.classList.add("active");
 
-  if (selectedType === "income") {
-    renderCategories(INCOME_CATEGORIES);
-  } else {
-    renderCategories(CATEGORIES);
-  }
-}));
+    selectedType = b.dataset.type;
+
+    if (selectedType === "income") {
+      renderCategories(INCOME_CATEGORIES);
+    } else {
+      renderCategories(CATEGORIES);
+    }
+  });
+});
+
+// Категории по умолчанию (первый раз)
 renderCategories(CATEGORIES);
+
 
 
   // Save transaction
