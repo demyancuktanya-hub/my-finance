@@ -287,9 +287,21 @@ function init(){
   $("#btnSeeAll").addEventListener("click", ()=> setPage("history"));
 
   // Add modal
-  $("#openAdd").addEventListener("click", openModal);
+$("#openAdd").addEventListener("click", () => {
+  openModal();
+
+  renderCategories(
+    selectedType === "income"
+      ? INCOME_CATEGORIES
+      : CATEGORIES
+  );
+});
+
   $("#closeAdd").addEventListener("click", closeModal);
-  $("#modal").addEventListener("click", (e)=> { if(e.target.id === "modal") closeModal();renderCategories(selectedType === "income" ? INCOME_CATEGORIES : CATEGORIES);
+  $("#modal").addEventListener("click", (e) => {
+  if (e.target.id === "modal") closeModal();
+});
+
  });
 
   // Segmented type (Расход / Доход)
