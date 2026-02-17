@@ -139,7 +139,7 @@ h2{margin:0; font-size:34px}
 
 .fab{
   position:fixed; left:50%; transform:translateX(-50%);
-  bottom:40px;
+  bottom:100px;
   width:74px; height:74px; border-radius:999px;
   background:linear-gradient(180deg, var(--blue), var(--blue2));
   border:none; color:white;
