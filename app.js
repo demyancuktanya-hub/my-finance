@@ -26,6 +26,29 @@ const INCOME_CATEGORIES = [
   { key: "cashback", name: "Кэшбэк", icon: "🏦" },
   { key: "other_income", name: "Прочее", icon: "💰" }
 ];
+let selectedCategory = null;
+
+function renderCategories(list) {
+  const catsDiv = $("#cats");
+  if (!catsDiv) return;
+
+  catsDiv.innerHTML = "";
+  selectedCategory = null;
+
+  list.forEach(cat => {
+    const btn = document.createElement("button");
+    btn.className = "cat";
+    btn.textContent = `${cat.icon} ${cat.name}`;
+
+    btn.addEventListener("click", () => {
+      $$("#cats .cat").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      selectedCategory = cat.id || cat.key; // для расхода id, для дохода key
+    });
+
+    catsDiv.appendChild(btn);
+  });
+}
 
 function rub(n){
   const sign = n < 0 ? "-" : "";
