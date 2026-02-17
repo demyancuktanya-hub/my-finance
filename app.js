@@ -289,7 +289,8 @@ function init(){
   // Add modal
   $("#openAdd").addEventListener("click", openModal);
   $("#closeAdd").addEventListener("click", closeModal);
-  $("#modal").addEventListener("click", (e)=> { if(e.target.id === "modal") closeModal(); });
+  $("#modal").addEventListener("click", (e)=> { if(e.target.id === "modal") closeModal();renderCategories(selectedType === "income" ? INCOME_CATEGORIES : CATEGORIES);
+ });
 
   // Segmented type (Расход / Доход)
 $$(".seg").forEach(b => {
