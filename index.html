@@ -106,21 +106,43 @@
       </section>
 
       <!-- Profile -->
-     
- <section class="page" data-page="profile">
-        <div class="profileTop">
-          <div class="appIcon">МФ</div>
-          <div class="profileName">Профиль</div>
-        </div>
 <section class="page" data-page="profile">
-<div class="card">
-  <div id="profileGreeting" class="muted"></div>
-</div>
 
   <div class="profileTop">
     <div class="appIcon">МФ</div>
     <div class="profileName">Профиль</div>
   </div>
+
+  <!-- Приветствие -->
+  <div class="card">
+    <div id="profileGreeting" style="font-size:20px;font-weight:700;">Привет 👋</div>
+  </div>
+
+  <!-- Валюта -->
+  <div class="card">
+    <label>Валюта</label>
+    <select id="profileCurrency">
+      <option value="₽">₽ Рубли</option>
+      <option value="$">$ Доллары</option>
+      <option value="€">€ Евро</option>
+    </select>
+  </div>
+
+  <!-- Меню профиля (именно тут, внутри profile-section!) -->
+  <div class="card menu">
+    <button class="menuItem" id="btnSettings">
+      <span class="row">⚙️ Настройки</span>
+      <span class="muted">›</span>
+    </button>
+
+    <button class="menuItem danger" id="btnClearAll">
+      <span class="row">🗑️ Очистить всё</span>
+      <span class="muted">›</span>
+    </button>
+  </div>
+
+</section>
+
 
   <!-- Валюта -->
   <div class="card">
