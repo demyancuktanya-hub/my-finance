@@ -84,24 +84,27 @@ let selectedCategoryId = "products";
 let activePage = "overview";
 let analysisMonth = new Date();
 
+
 function setPage(page){
   activePage = page;
-  $$(".page").forEach(p => p.classList.toggle("active", p.dataset.page === page));
-  $$(".navItem").forEach(b => b.classList.toggle("active", b.dataset.go === page));
 
-  const titles = {overview:"Обзор", analysis:"Анализ", history:"История", profile:"Профиль"};
-  $("#pageTitle").textContent = titles[page] || "Мои финансы";
+  $$(".page").forEach(p => p.classList.toggle("active", p.dataset.page === page));
+  $$(".navItem").forEach(b => b.classList.toggle("active", b.dataset.page === page));
+
+  const titles = { overview:"Обзор", analysis:"Анализ", history:"История", profile:"Профиль" };
+  $("#pageTitle").textContent = titles[page] || "";
 
   if(page === "history") renderHistory();
   if(page === "analysis") renderAnalysis();
   if(page === "overview") renderOverview();
+
   if (page === "profile") {
-  const greeting = $("#profileGreeting");
-  const savedName = localStorage.getItem("profileName");
-  if (greeting) {
-    greeting.textContent = savedName ? `Привет, ${savedName} 👋` : "Привет 👋";
+    const greeting = $("#profileGreeting");
+    const savedName = localStorage.getItem("profileName");
+    if (greeting) {
+      greeting.textContent = savedName ? `Привет, ${savedName} 👋` : "Привет 👋";
+    }
   }
-}
 }
 
 function openModal(){
