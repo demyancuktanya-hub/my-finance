@@ -376,6 +376,17 @@ $("#btnSaveProfile")?.addEventListener("click", () => {
   localStorage.setItem("profileName", name);
   alert("Имя сохранено");
 });
+// Currency
+const currencySelect = $("#profileCurrency");
+const savedCurrency = localStorage.getItem("profileCurrency");
+
+if (savedCurrency && currencySelect) {
+  currencySelect.value = savedCurrency;
+}
+
+currencySelect?.addEventListener("change", () => {
+  localStorage.setItem("profileCurrency", currencySelect.value);
+});
 $("#btnClearAll").addEventListener("click", ()=>{
     const ok = confirm("Точно очистить все данные?");
     if(!ok) return;
