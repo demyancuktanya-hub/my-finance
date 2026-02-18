@@ -106,7 +106,6 @@ function setPage(page){
 
     }
   }
-}
 
 function openModal(){
   $("#modal").classList.add("open");
