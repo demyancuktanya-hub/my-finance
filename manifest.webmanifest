@@ -1,12 +1,21 @@
 {
   "name": "Мои финансы",
   "short_name": "Финансы",
-  "start_url": ".",
+  "start_url": "/my-finance/",
+  "scope": "/my-finance/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#0b0d12",
   "icons": [
-    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+    {
+      "src": "/my-finance/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/my-finance/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
   ]
 }
