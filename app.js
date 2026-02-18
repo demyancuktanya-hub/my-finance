@@ -95,6 +95,13 @@ function setPage(page){
   if(page === "history") renderHistory();
   if(page === "analysis") renderAnalysis();
   if(page === "overview") renderOverview();
+if (page === "profile") {
+  const greeting = $("#profileGreeting");
+  const savedName = localStorage.getItem("profileName");
+  if (greeting) {
+    greeting.textContent = savedName ? `Привет, ${savedName} 👋` : "Привет 👋";
+  }
+}
 }
 
 function openModal(){
