@@ -112,18 +112,34 @@
           <div class="appIcon">МФ</div>
           <div class="profileName">Профиль</div>
         </div>
-<div class="card">
-  <label>Валюта</label>
-  <select id="profileCurrency">
-    <option value="₽">₽ Рубли</option>
-    <div class="card">
-  <label>Ваше имя</label>
-  <input id="profileName" type="text" placeholder="Введите имя">
-  <button id="btnSaveProfile" class="primary">Сохранить</button>
-</div>
-<option value="$">$ Доллары</option>
-    <option value="€">€ Евро</option>
-  </select>
+<section class="page" data-page="profile">
+
+  <div class="profileTop">
+    <div class="appIcon">МФ</div>
+    <div class="profileName">Профиль</div>
+  </div>
+
+  <!-- Валюта -->
+  <div class="card">
+    <label>Валюта</label>
+    <select id="profileCurrency">
+      <option value="₽">₽ Рубли</option>
+      <option value="$">$ Доллары</option>
+      <option value="€">€ Евро</option>
+    </select>
+  </div>
+
+  <!-- Приветствие (ВМЕСТО поля имени) -->
+  <div class="card">
+    <div id="profileGreeting" class="muted"></div>
+  </div>
+
+  <div class="card menu">
+    ...
+  </div>
+
+</section>
+
 </div>
 
         <div class="card menu">
