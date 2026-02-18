@@ -102,7 +102,8 @@ function setPage(page){
     const greeting = $("#profileGreeting");
     const savedName = localStorage.getItem("profileName");
     if (greeting) {
-      greeting.textContent = savedName ? `Привет, ${savedName} 👋` : "Привет 👋";
+      greeting.textContent = savedName ? "Привет, " + savedName + " 👋" : "Привет 👋";
+
     }
   }
 }
