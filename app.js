@@ -362,7 +362,21 @@ renderCategories(CATEGORIES);
   });
 
   // Profile actions
-  $("#btnClearAll").addEventListener("click", ()=>{
+  // Profile name
+const nameInput = $("#profileName");
+const savedName = localStorage.getItem("profileName");
+
+if (savedName && nameInput) {
+  nameInput.value = savedName;
+}
+
+$("#btnSaveProfile")?.addEventListener("click", () => {
+  const name = nameInput.value.trim();
+  if (!name) return alert("Введите имя");
+  localStorage.setItem("profileName", name);
+  alert("Имя сохранено");
+});
+$("#btnClearAll").addEventListener("click", ()=>{
     const ok = confirm("Точно очистить все данные?");
     if(!ok) return;
     tx = [];
