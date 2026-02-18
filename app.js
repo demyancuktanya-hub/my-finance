@@ -362,19 +362,14 @@ renderCategories(CATEGORIES);
   });
 
   // Profile actions
-  // Profile name
-const nameInput = $("#profileName");
+  // Greeting
+const greeting = $("#profileGreeting");
 const savedName = localStorage.getItem("profileName");
 
-if (savedName && nameInput) {
-  nameInput.value = savedName;
+if (greeting) {
+  greeting.textContent = savedName ? `Привет, ${savedName} 👋` : "Привет 👋";
 }
 
-$("#btnSaveProfile")?.addEventListener("click", () => {
-  const name = nameInput.value.trim();
-  if (!name) return alert("Введите имя");
-  localStorage.setItem("profileName", name);
-  alert("Имя сохранено");
 });
 // Currency
 const currencySelect = $("#profileCurrency");
