@@ -102,34 +102,49 @@ if (clearBtn) {
   if(page === "analysis") renderAnalysis();
   if(page === "overview") renderOverview();
 
-}
-
-
 function openModal(){
   $("#modal").classList.add("open");
   $("#amountInput").value = "";
   $("#noteInput").value = "";
   $("#amountInput").focus();
-}
-function closeModal(){
-  $("#modal").classList.remove("open");
+
+  // ✅ при открытии окна сбрасываем выбор категории
+  selectedCategoryId = null;
+
+  // ✅ и перерисовываем категории под текущий тип (доход/расход)
+  renderCats();
 }
 
 function renderCats(){
   const root = $("#cats");
+  if (!root) return;
+
   root.innerHTML = "";
-  CATEGORIES.forEach(c => {
+
+  // ✅ правильный список категорий под тип операции
+  const list = (selectedType === "income") ? INCOME_CATEGORIES : CATEGORIES;
+
+  list.forEach(cat => {
     const btn = document.createElement("button");
-    btn.className = "cat" + (c.id === selectedCategoryId ? " active" : "");
     btn.type = "button";
-    btn.innerHTML = `<span>${c.icon}</span><span>${c.name}</span>`;
+    btn.className = "cat" + ((cat.id || cat.key) === selectedCategoryId ? " active" : "");
+    btn.innerHTML = `<span>${cat.icon}</span> <span>${cat.name}</span>`;
+
     btn.addEventListener("click", () => {
-      selectedCategoryId = c.id;
-      renderCats();
+      // снять active со всех
+      $$("#cats .cat").forEach(b => b.classList.remove("active"));
+
+      // ✅ сохранить выбранную категорию (для расхода id, для дохода key)
+      selectedCategoryId = cat.id || cat.key;
+
+      // подсветить кнопку
+      btn.classList.add("active");
     });
+
     root.appendChild(btn);
   });
 }
+
 
 function monthRange(d){
   const start = new Date(d.getFullYear(), d.getMonth(), 1, 0, 0, 0);
