@@ -179,10 +179,11 @@ function renderOverview(){
 }
 
 function renderItem(t){
-  const allCats = t.type === "income" ? INCOME_CATEGORIES : CATEGORIES;
-
-const cat = allCats.find(c => (c.id || c.key) === t.categoryId) 
-  || allCats[allCats.length - 1];
+  
+const cat =
+  CATEGORIES.find(c => c.id === t.categoryId) ||
+  INCOME_CATEGORIES.find(c => c.key === t.categoryId) ||
+  { name: "Другое", icon: "📦" };
 
     
   const dt = new Date(t.createdAt);
