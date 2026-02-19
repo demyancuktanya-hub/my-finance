@@ -422,6 +422,7 @@ btnShare?.addEventListener("click", async () => {
     console.log(e);
   }
 });
+}
 
 
   // First render
