@@ -425,10 +425,10 @@ btnShare?.addEventListener("click", async () => {
 
 
   // First render
-  setPage("overview");
+setPage("overview");
 }
 
 init();
-}
+
 
 
