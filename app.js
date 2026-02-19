@@ -100,15 +100,6 @@ if (clearBtn) {
   if(page === "history") renderHistory();
   if(page === "analysis") renderAnalysis();
   if(page === "overview") renderOverview();
-const clearBtn = document.getElementById("btnClearAll");
-
-if (clearBtn) {
-  if (page === "profile") {
-    clearBtn.style.display = "block";
-  } else {
-    clearBtn.style.display = "none";
-  }
-}
 
 }
 
