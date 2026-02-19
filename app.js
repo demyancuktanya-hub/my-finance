@@ -84,28 +84,18 @@ let selectedCategoryId = "products";
 let activePage = "overview";
 let analysisMonth = new Date();
 
-
 function setPage(page){
   activePage = page;
-
   $$(".page").forEach(p => p.classList.toggle("active", p.dataset.page === page));
-  $$(".navItem").forEach(b => b.classList.toggle("active", b.dataset.page === page));
+  $$(".navItem").forEach(b => b.classList.toggle("active", b.dataset.go === page));
 
-  const titles = { overview:"Обзор", analysis:"Анализ", history:"История", profile:"Профиль" };
-  $("#pageTitle").textContent = titles[page] || "";
+  const titles = {overview:"Обзор", analysis:"Анализ", history:"История", profile:"Профиль"};
+  $("#pageTitle").textContent = titles[page] || "Мои финансы";
 
   if(page === "history") renderHistory();
   if(page === "analysis") renderAnalysis();
   if(page === "overview") renderOverview();
-
-  if (page === "profile") {
-    const greeting = $("#profileGreeting");
-    const savedName = localStorage.getItem("profileName");
-    if (greeting) {
-      greeting.textContent = savedName ? "Привет, " + savedName + " 👋" : "Привет 👋";
-
-    }
-  }
+}
 
 function openModal(){
   $("#modal").classList.add("open");
@@ -372,26 +362,7 @@ renderCategories(CATEGORIES);
   });
 
   // Profile actions
-  // Greeting
-const greeting = $("#profileGreeting");
-const savedName = localStorage.getItem("profileName");
-
-if (greeting) {
-  greeting.textContent = savedName ? `Привет, ${savedName} 👋` : "Привет 👋";
-}
-
-// Currency
-const currencySelect = $("#profileCurrency");
-const savedCurrency = localStorage.getItem("profileCurrency");
-
-if (savedCurrency && currencySelect) {
-  currencySelect.value = savedCurrency;
-}
-
-currencySelect?.addEventListener("change", () => {
-  localStorage.setItem("profileCurrency", currencySelect.value);
-});
-$("#btnClearAll").addEventListener("click", ()=>{
+  $("#btnClearAll").addEventListener("click", ()=>{
     const ok = confirm("Точно очистить все данные?");
     if(!ok) return;
     tx = [];
@@ -406,29 +377,21 @@ $("#btnClearAll").addEventListener("click", ()=>{
     alert("Настройки можно добавить следующими: валюта, тема, экспорт/импорт данных.");
   });
 
-// Share
-const btnShare = $("#btnShare");
-btnShare?.addEventListener("click", async () => {
-  const url = location.href;
-
-  try {
-    if (navigator.share) {
-      await navigator.share({ title: "Мои финансы", url });
-    } else {
-      await navigator.clipboard.writeText(url);
-      alert("Ссылка скопирована!");
-    }
-  } catch (e) {
-    console.log(e);
-  }
-});
-
+  // Share
+  $("#btnShare").addEventListener("click", async ()=>{
+    const url = location.href;
+    try{
+      if(navigator.share) {
+        await navigator.share({ title: "Мои финансы", url });
+      } else {
+        await navigator.clipboard.writeText(url);
+        alert("Ссылка скопирована!");
+      }
+    }catch{}
+  });
 
   // First render
-setPage("overview");
+  setPage("overview");
 }
 
 init();
-
-
-
