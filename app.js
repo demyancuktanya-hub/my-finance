@@ -380,7 +380,6 @@ if (greeting) {
   greeting.textContent = savedName ? `Привет, ${savedName} 👋` : "Привет 👋";
 }
 
-});
 // Currency
 const currencySelect = $("#profileCurrency");
 const savedCurrency = localStorage.getItem("profileCurrency");
