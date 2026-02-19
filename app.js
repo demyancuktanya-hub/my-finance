@@ -429,3 +429,6 @@ btnShare?.addEventListener("click", async () => {
 }
 
 init();
+}
+
+
