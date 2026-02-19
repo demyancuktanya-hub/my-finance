@@ -91,6 +91,11 @@ function setPage(page){
 
   const titles = {overview:"Обзор", analysis:"Анализ", history:"История", profile:"Профиль"};
   $("#pageTitle").textContent = titles[page] || "Мои финансы";
+const clearBtn = document.getElementById("btnClearAll");
+
+if (clearBtn) {
+  clearBtn.style.display = (page === "profile") ? "block" : "none";
+}
 
   if(page === "history") renderHistory();
   if(page === "analysis") renderAnalysis();
