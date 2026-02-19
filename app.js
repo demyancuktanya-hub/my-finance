@@ -33,7 +33,6 @@ function renderCategories(list) {
   if (!catsDiv) return;
 
   catsDiv.innerHTML = "";
-  selectedCategoryId = null;
 
 
   list.forEach(cat => {
