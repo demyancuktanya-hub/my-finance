@@ -416,7 +416,10 @@ $("#btnClearAll").addEventListener("click", ()=>{
         await navigator.clipboard.writeText(url);
         alert("Ссылка скопирована!");
       }
-    }catch{}
+    } catch (e) {
+  console.log(e);
+}
+
   });
 
   // First render
