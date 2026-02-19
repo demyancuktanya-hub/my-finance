@@ -33,7 +33,8 @@ function renderCategories(list) {
   if (!catsDiv) return;
 
   catsDiv.innerHTML = "";
-  selectedCategory = null;
+  selectedCategoryId = null;
+
 
   list.forEach(cat => {
     const btn = document.createElement("button");
@@ -43,7 +44,8 @@ function renderCategories(list) {
     btn.addEventListener("click", () => {
       $$("#cats .cat").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
-      selectedCategory = cat.id || cat.key; // для расхода id, для дохода key
+      selectedCategoryId = cat.id || cat.key;
+/ для расхода id, для дохода key
     });
 
     catsDiv.appendChild(btn);
