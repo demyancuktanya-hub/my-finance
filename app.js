@@ -381,7 +381,7 @@ renderCategories(CATEGORIES);
     renderOverview();
     renderHistory();
     renderAnalysis();
-  };
+  }
 
   // Search
   $("#searchInput").addEventListener("input", renderHistory); // Month switch
