@@ -12,43 +12,9 @@ const CATEGORIES = [
   { id: "clothes", name: "Одежда", icon: "👗" },
   { id: "health", name: "Здоровье", icon: "💊" },
   { id: "fun", name: "Развлечения", icon: "🎮" },
-  { id: "subs", name: "Подписки", icФon: "📱" },
+  { id: "subs", name: "Подписки", icon: "📱" },
   { id: "other", name: "Другое", icon: "📦" },
 ];
-
-
-// ===== КАТЕГОРИИ ДОХОДА =====
-
-const INCOME_CATEGORIES = [
-  { key: "salary", name: "Зарплата", icon: "💼" },
-  { key: "gift", name: "Подарки", icon: "🎁" },
-  { key: "freelance", name: "Фриланс", icon: "💻" },
-  { key: "cashback", name: "Кэшбэк", icon: "🏦" },
-  { key: "other_income", name: "Прочее", icon: "💰" }
-];
-let selectedCategory = null;
-
-function renderCategories(list) {
-  const catsDiv = $("#cats");
-  if (!catsDiv) return;
-
-  catsDiv.innerHTML = "";
-  selectedCategory = null;
-
-  list.forEach(cat => {
-    const btn = document.createElement("button");
-    btn.className = "cat";
-    btn.textContent = `${cat.icon} ${cat.name}`;
-
-    btn.addEventListener("click", () => {
-      $$("#cats .cat").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      selectedCategory = cat.id || cat.key; // для расхода id, для дохода key
-    });
-
-    catsDiv.appendChild(btn);
-  });
-}
 
 function rub(n){
   const sign = n < 0 ? "-" : "";
@@ -84,28 +50,18 @@ let selectedCategoryId = "products";
 let activePage = "overview";
 let analysisMonth = new Date();
 
-
 function setPage(page){
   activePage = page;
-
   $$(".page").forEach(p => p.classList.toggle("active", p.dataset.page === page));
-  $$(".navItem").forEach(b => b.classList.toggle("active", b.dataset.page === page));
+  $$(".navItem").forEach(b => b.classList.toggle("active", b.dataset.go === page));
 
-  const titles = { overview:"Обзор", analysis:"Анализ", history:"История", profile:"Профиль" };
-  $("#pageTitle").textContent = titles[page] || "";
+  const titles = {overview:"Обзор", analysis:"Анализ", history:"История", profile:"Профиль"};
+  $("#pageTitle").textContent = titles[page] || "Мои финансы";
 
   if(page === "history") renderHistory();
   if(page === "analysis") renderAnalysis();
   if(page === "overview") renderOverview();
-
-  if (page === "profile") {
-    const greeting = $("#profileGreeting");
-    const savedName = localStorage.getItem("profileName");
-    if (greeting) {
-      greeting.textContent = savedName ? "Привет, " + savedName + " 👋" : "Привет 👋";
-
-    }
-  }
+}
 
 function openModal(){
   $("#modal").classList.add("open");
@@ -297,40 +253,19 @@ function init(){
   $("#btnSeeAll").addEventListener("click", ()=> setPage("history"));
 
   // Add modal
-$("#openAdd").addEventListener("click", () => {
-  openModal();
-
-  renderCategories(
-    selectedType === "income"
-      ? INCOME_CATEGORIES
-      : CATEGORIES
-  );
-});
-
+  $("#openAdd").addEventListener("click", openModal);
   $("#closeAdd").addEventListener("click", closeModal);
-  $("#modal").addEventListener("click", (e) => {
-  if (e.target.id === "modal") closeModal();
-});
-// Segmented type (Расход / Доход)
-$$(".seg").forEach(b => {
-  b.addEventListener("click", () => {
-    $$(".seg").forEach(x => x.classList.remove("active"));
+  $("#modal").addEventListener("click", (e)=> { if(e.target.id === "modal") closeModal(); });
+
+  // Segmented type
+  $$(".seg").forEach(b => b.addEventListener("click", ()=>{
+    $$(".seg").forEach(x=>x.classList.remove("active"));
     b.classList.add("active");
-
     selectedType = b.dataset.type;
+  }));
 
-    if (selectedType === "income") {
-      renderCategories(INCOME_CATEGORIES);
-    } else {
-      renderCategories(CATEGORIES);
-    }
-  });
-});
-
-// Категории по умолчанию (первый раз)
-renderCategories(CATEGORIES);
-
-
+  // Categories
+  renderCats();
 
   // Save transaction
   $("#saveTx").addEventListener("click", ()=>{
@@ -372,26 +307,7 @@ renderCategories(CATEGORIES);
   });
 
   // Profile actions
-  // Greeting
-const greeting = $("#profileGreeting");
-const savedName = localStorage.getItem("profileName");
-
-if (greeting) {
-  greeting.textContent = savedName ? `Привет, ${savedName} 👋` : "Привет 👋";
-}
-
-// Currency
-const currencySelect = $("#profileCurrency");
-const savedCurrency = localStorage.getItem("profileCurrency");
-
-if (savedCurrency && currencySelect) {
-  currencySelect.value = savedCurrency;
-}
-
-currencySelect?.addEventListener("change", () => {
-  localStorage.setItem("profileCurrency", currencySelect.value);
-});
-$("#btnClearAll").addEventListener("click", ()=>{
+  $("#btnClearAll").addEventListener("click", ()=>{
     const ok = confirm("Точно очистить все данные?");
     if(!ok) return;
     tx = [];
@@ -416,10 +332,7 @@ $("#btnClearAll").addEventListener("click", ()=>{
         await navigator.clipboard.writeText(url);
         alert("Ссылка скопирована!");
       }
-    } catch (e) {
-  console.log(e);
-}
-
+    }catch{}
   });
 
   // First render
