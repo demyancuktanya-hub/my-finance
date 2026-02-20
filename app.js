@@ -426,6 +426,6 @@ renderCategories(CATEGORIES);
     }catch{}
   });  // First render
   setPage("overview");
-}
+
 
 init();
