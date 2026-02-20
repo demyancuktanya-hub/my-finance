@@ -82,15 +82,22 @@ function closeModal(){
 function renderCats(){
   const root = $("#cats");
   root.innerHTML = "";
-  CATEGORIES.forEach(c => {
+
+  const list = selectedType === "income"
+    ? INCOME_CATEGORIES
+    : CATEGORIES;
+
+  list.forEach(c => {
     const btn = document.createElement("button");
     btn.className = "cat" + (c.id === selectedCategoryId ? " active" : "");
     btn.type = "button";
-    btn.innerHTML = `<span>${c.icon}</span><span>${c.name}</span>`;
+    btn.innerHTML = `<span>${c.icon}</span>${c.name}`;
+
     btn.addEventListener("click", () => {
       selectedCategoryId = c.id;
       renderCats();
     });
+
     root.appendChild(btn);
   });
 }
