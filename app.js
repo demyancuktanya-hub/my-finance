@@ -273,10 +273,24 @@ function init(){
 
   // Segmented type
   $$(".seg").forEach(b => b.addEventListener("click", (e) => {
-  e.preventDefault(); // <- важно!
+  e.preventDefault();
+
   $$(".seg").forEach(x => x.classList.remove("active"));
   b.classList.add("active");
+
   selectedType = b.dataset.type;
+
+  // ВАЖНО: сначала определяем список
+  const list = selectedType === "income"
+    ? INCOME_CATEGORIES
+    : CATEGORIES;
+
+  // Ставим первую категорию как выбранную
+  selectedCategoryId = list[0].id;
+
+  // Перерисовываем кнопки
+  renderCats();
+}));
 
   const list = selectedType === "income" ? INCOME_CATEGORIES : CATEGORIES;
   selectedCategoryId = list[0].id;
