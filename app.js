@@ -15,7 +15,13 @@ const CATEGORIES = [
   { id: "subs", name: "Подписки", icon: "📱" },
   { id: "other", name: "Другое", icon: "📦" },
 ];
-
+const INCOME_CATEGORIES = [
+  { id: "salary", name: "Зарплата", icon: "💼" },
+  { id: "freelance", name: "Фриланс", icon: "🧑‍💻" },
+  { id: "gifts", name: "Подарки", icon: "🎁" },
+  { id: "investments", name: "Инвестиции", icon: "💰" },
+  { id: "other_income", name: "Другое", icon: "📦" }
+];
 function rub(n){
   const sign = n < 0 ? "-" : "";
   const v = Math.abs(Math.round(n));
