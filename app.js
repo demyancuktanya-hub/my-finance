@@ -421,6 +421,5 @@ renderCategories(CATEGORIES);
 
   // First render
   setPage("overview");
-}
 
 init();
