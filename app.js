@@ -366,46 +366,4 @@ renderCategories(CATEGORIES);
   $("#searchInput").addEventListener("input", renderHistory);
 
   // Month switch
-  $("#prevMonth").addEventListener("click", ()=>{
-    analysisMonth = new Date(analysisMonth.getFullYear(), analysisMonth.getMonth()-1, 1);
-    renderAnalysis();
-  });
-  $("#nextMonth").addEventListener("click", ()=>{
-    analysisMonth = new Date(analysisMonth.getFullYear(), analysisMonth.getMonth()+1, 1);
-    renderAnalysis();
-  });
-
-  // Profile actions
-  $("#btnClearAll").addEventListener("click", ()=>{
-    const ok = confirm("Точно очистить все данные?");
-    if(!ok) return;
-    tx = [];
-    saveTx(tx);
-    renderOverview();
-    renderHistory();
-    renderAnalysis();
-    alert("Готово: всё очищено");
-  });
-
-  $("#btnSettings").addEventListener("click", ()=>{
-    alert("Настройки можно добавить следующими: валюта, тема, экспорт/импорт данных.");
-  });
-
-  // Share
-  $("#btnShare").addEventListener("click", async ()=>{
-    const url = location.href;
-    try{
-      if(navigator.share) {
-        await navigator.share({ title: "Мои финансы", url });
-      } else {
-        await navigator.clipboard.writeText(url);
-        alert("Ссылка скопирована!");
-      }
-    }catch{}
-  });
-
-  // First render
-  setPage("overview");
-}
-
-init();
+  $("#prevMonth").addEv
