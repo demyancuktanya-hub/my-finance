@@ -153,7 +153,7 @@ function renderOverview(){
 
 function renderItem(t){
   const list = t.type === "income" ? INCOME_CATEGORIES : CATEGORIES;
-const cat = list.find(c => c.id === t.categoryId);
+const cat = list.find(c => c.id === t.categoryId) || { name: "Без категории", icon: "❓" };
   const dt = new Date(t.createdAt);
 
   const el = document.createElement("div");
