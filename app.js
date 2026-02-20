@@ -275,7 +275,9 @@ function init(){
   $$(".seg").forEach(b => b.addEventListener("click", ()=>{
     $$(".seg").forEach(x=>x.classList.remove("active"));
     b.classList.add("active");
-    selectedType = b.dataset.type;
+    selectedType = b.dataset.type;const list = selectedType === "income" ? INCOME_CATEGORIES : CATEGORIES;
+selectedCategoryId = list[0].id; // выбрать первую категорию
+renderCats();                    // перерисовать категории
   }));
 
   // Categories
