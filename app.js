@@ -381,7 +381,7 @@ renderCategories(CATEGORIES);
     renderOverview();
     renderHistory();
     renderAnalysis();
-  });
+  };
 
   // Search
   $("#searchInput").addEventListener("input", renderHistory); // Month switch
@@ -399,6 +399,11 @@ renderCategories(CATEGORIES);
     const ok = confirm("Точно очистить все данные?");
     if(!ok) return;
     tx = [];
+
+
+
+
+    
     saveTx(tx);
     renderOverview();
     renderHistory();
