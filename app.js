@@ -12,7 +12,7 @@ const CATEGORIES = [
   { id: "clothes", name: "Одежда", icon: "👗" },
   { id: "health", name: "Здоровье", icon: "💊" },
   { id: "fun", name: "Развлечения", icon: "🎮" },
-  { id: "subs", name: "Подписки", icon: "📱" },
+  { id: "subs", name: "Подписки", icФon: "📱" },
   { id: "other", name: "Другое", icon: "📦" },
 ];
 
