@@ -44,7 +44,7 @@ function renderCategories(list) {
       $$("#cats .cat").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
       selectedCategoryId = cat.id || cat.key;
-
+/ для расхода id, для дохода key
     });
 
     catsDiv.appendChild(btn);
@@ -102,49 +102,34 @@ if (clearBtn) {
   if(page === "analysis") renderAnalysis();
   if(page === "overview") renderOverview();
 
+}
+
+
 function openModal(){
   $("#modal").classList.add("open");
   $("#amountInput").value = "";
   $("#noteInput").value = "";
   $("#amountInput").focus();
-
-  // ✅ при открытии окна сбрасываем выбор категории
-  selectedCategoryId = null;
-
-  // ✅ и перерисовываем категории под текущий тип (доход/расход)
-  renderCats();
+}
+function closeModal(){
+  $("#modal").classList.remove("open");
 }
 
 function renderCats(){
   const root = $("#cats");
-  if (!root) return;
-
   root.innerHTML = "";
-
-  // ✅ правильный список категорий под тип операции
-  const list = (selectedType === "income") ? INCOME_CATEGORIES : CATEGORIES;
-
-  list.forEach(cat => {
+  CATEGORIES.forEach(c => {
     const btn = document.createElement("button");
+    btn.className = "cat" + (c.id === selectedCategoryId ? " active" : "");
     btn.type = "button";
-    btn.className = "cat" + ((cat.id || cat.key) === selectedCategoryId ? " active" : "");
-    btn.innerHTML = `<span>${cat.icon}</span> <span>${cat.name}</span>`;
-
+    btn.innerHTML = `<span>${c.icon}</span><span>${c.name}</span>`;
     btn.addEventListener("click", () => {
-      // снять active со всех
-      $$("#cats .cat").forEach(b => b.classList.remove("active"));
-
-      // ✅ сохранить выбранную категорию (для расхода id, для дохода key)
-      selectedCategoryId = cat.id || cat.key;
-
-      // подсветить кнопку
-      btn.classList.add("active");
+      selectedCategoryId = c.id;
+      renderCats();
     });
-
     root.appendChild(btn);
   });
 }
-
 
 function monthRange(d){
   const start = new Date(d.getFullYear(), d.getMonth(), 1, 0, 0, 0);
@@ -421,5 +406,6 @@ renderCategories(CATEGORIES);
 
   // First render
   setPage("overview");
+}
 
 init();
