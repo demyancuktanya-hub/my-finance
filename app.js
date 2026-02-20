@@ -144,7 +144,8 @@ function renderOverview(){
 }
 
 function renderItem(t){
-  const cat = CATEGORIES.find(c => c.id === t.categoryId) || CATEGORIES[CATEGORIES.length-1];
+  const list = t.type === "income" ? INCOME_CATEGORIES : CATEGORIES;
+const cat = list.find(c => c.id === t.category);
   const dt = new Date(t.createdAt);
 
   const el = document.createElement("div");
