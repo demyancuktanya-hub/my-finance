@@ -44,7 +44,6 @@ function renderCategories(list) {
       $$("#cats .cat").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
       selectedCategoryId = cat.id || cat.key;
-/ для расхода id, для дохода key
     });
 
     catsDiv.appendChild(btn);
