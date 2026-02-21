@@ -373,3 +373,16 @@ function init(){
 }
 
 init();
+const themeSelect = document.getElementById("themeSelect");
+
+themeSelect.addEventListener("change", () => {
+  document.body.classList.toggle("light", themeSelect.value === "light");
+  localStorage.setItem("theme", themeSelect.value);
+});
+
+// загрузка сохранённой темы
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme) {
+  document.body.classList.toggle("light", savedTheme === "light");
+  themeSelect.value = savedTheme;
+}
