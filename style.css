@@ -281,10 +281,10 @@ h2{margin:0; font-size:34px}
   font-size:18px;
   font-weight:800;
 }
-#btnClearAll {
-  display: none;
-}
-/* ===== Light Blue Theme ===== */
+/* #btnClearAll { display: none; } */
+.menuItem.danger {
+  border: 1px solid rgba(255, 59, 48, 0.25);
+}/* ===== Light Blue Theme ===== */
 
 body.theme-light {
   background: linear-gradient(180deg, #eaf4ff 0%, #dcecff 100%);
