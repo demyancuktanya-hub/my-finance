@@ -402,7 +402,20 @@ if (savedTheme) {
     localStorage.setItem("theme", t);
     applyTheme(t);
   });
+const btnClearAll = document.getElementById("btnClearAll");
 
+if (btnClearAll) {
+  btnClearAll.addEventListener("click", () => {
+    const ok = confirm("Удалить все данные? Это действие нельзя отменить.");
+    if (!ok) return;
+
+    // 1) очистка localStorage (самый надежный вариант)
+    localStorage.clear();
+
+    // 2) перезагрузка, чтобы всё пересчиталось и обновилось
+    location.reload();
+  });
+}
   function applyTheme(theme) {
     document.body.classList.toggle("theme-light", theme === "light");
   }
