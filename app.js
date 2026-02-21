@@ -386,3 +386,24 @@ if (savedTheme) {
   document.body.classList.toggle("light", savedTheme === "light");
   themeSelect.value = savedTheme;
 }
+// ===== Theme switcher =====
+(function initTheme() {
+  const select = document.getElementById("themeSelect");
+  if (!select) return;
+
+  // применяем сохранённую тему при запуске
+  const saved = localStorage.getItem("theme") || "dark";
+  select.value = saved;
+  applyTheme(saved);
+
+  // слушаем изменения
+  select.addEventListener("change", () => {
+    const t = select.value;
+    localStorage.setItem("theme", t);
+    applyTheme(t);
+  });
+
+  function applyTheme(theme) {
+    document.body.classList.toggle("theme-light", theme === "light");
+  }
+})();
