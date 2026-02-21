@@ -296,7 +296,6 @@ function init(){
   const list = selectedType === "income" ? INCOME_CATEGORIES : CATEGORIES;
   selectedCategoryId = list[0].id;
   renderCats();
-});
 
   // Categories
   renderCats();
