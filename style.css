@@ -284,34 +284,60 @@ h2{margin:0; font-size:34px}
 #btnClearAll {
   display: none;
 }
-/* Светлая тема */
-body.light {
-  background: #f5f9ff;
-  color: #1a1a1a;
-}
+/* ===== Light Blue Theme ===== */
 
-body.light .card {
-  background: #ffffff;
-  color: #1a1a1a;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-body.light .menuItem {
-  background: #e6f0ff;
-}
-
-body.light .bottom-nav {
-  background: #ffffff;
-}
-
-body.light .bottom-nav .active {
-  color: #2b7cff;
-}/* ===== Light theme (blue) ===== */
 body.theme-light {
-  background: #eaf4ff;
-  color: #0b1b2b;
+  background: linear-gradient(180deg, #eaf4ff 0%, #dcecff 100%);
+  color: #0f172a;
 }
 
+body.theme-light .card {
+  background: #f8fbff;
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.08);
+  color: #0f172a;
+}
+
+body.theme-light .muted {
+  color: rgba(15, 23, 42, 0.6);
+}
+
+body.theme-light .menuItem {
+  background: linear-gradient(135deg, #4da3ff, #2b7cff);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 14px rgba(43, 124, 255, 0.3);
+}
+
+body.theme-light .menuItem:active {
+  transform: scale(0.97);
+}
+
+body.theme-light .menuItem.danger {
+  background: linear-gradient(135deg, #ff6b6b, #ff3b3b);
+  box-shadow: 0 4px 14px rgba(255, 59, 48, 0.3);
+}
+
+body.theme-light select,
+body.theme-light input {
+  background: #ffffff;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #0f172a;
+}
+
+body.theme-light .bottom-nav {
+  background: #f0f6ff;
+  border-top: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+body.theme-light .bottom-nav .active {
+  color: #2b7cff;
+}
+
+body.theme-light .fab {
+  background: linear-gradient(135deg, #4da3ff, #2b7cff);
+  box-shadow: 0 8px 25px rgba(43, 124, 255, 0.4);
+}
 body.theme-light .card {
   background: #ffffff;
   color: #0b1b2b;
