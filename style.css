@@ -312,10 +312,10 @@ body.theme-light .menuItem {
 body.theme-light .menuItem:active {
   transform: scale(0.97);
 }
-
-body.theme-light .menuItem.danger {
-  background: linear-gradient(135deg, #ff6b6b, #ff3b3b);
-  box-shadow: 0 4px 14px rgba(255, 59, 48, 0.3);
+body.theme-light .menuItem.danger{
+  background: rgba(255, 59, 48, 0.10);
+  border: 1px solid rgba(255, 59, 48, 0.25);
+  color: #7a0b0b;
 }
 
 body.theme-light select,
