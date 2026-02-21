@@ -284,3 +284,30 @@ h2{margin:0; font-size:34px}
 #btnClearAll {
   display: none;
 }
+/* Светлая тема */
+body.light {
+  background: #f5f9ff;
+  color: #1a1a1a;
+}
+
+body.light .card {
+  background: #ffffff;
+  color: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+body.light .menuItem {
+  background: #e6f0ff;
+}
+
+body.light .bottom-nav {
+  background: #ffffff;
+}
+
+body.light .bottom-nav .active {
+  color: #2b7cff;
+}
+
+body.light .fab {
+  background: #2b7cff;
+}
