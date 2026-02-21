@@ -306,6 +306,38 @@ body.light .bottom-nav {
 
 body.light .bottom-nav .active {
   color: #2b7cff;
+}/* ===== Light theme (blue) ===== */
+body.theme-light {
+  background: #eaf4ff;
+  color: #0b1b2b;
+}
+
+body.theme-light .card {
+  background: #ffffff;
+  color: #0b1b2b;
+  border: 1px solid rgba(0, 120, 255, 0.15);
+}
+
+body.theme-light .muted {
+  color: rgba(11, 27, 43, 0.6);
+}
+
+body.theme-light .menuItem {
+  background: rgba(0, 120, 255, 0.08);
+  color: #0b1b2b;
+  border: 1px solid rgba(0, 120, 255, 0.15);
+}
+
+body.theme-light .menuItem.danger {
+  background: rgba(255, 59, 48, 0.08);
+  border: 1px solid rgba(255, 59, 48, 0.15);
+}
+
+body.theme-light select,
+body.theme-light input {
+  background: #ffffff;
+  color: #0b1b2b;
+  border: 1px solid rgba(0, 120, 255, 0.2);
 }
 
 body.light .fab {
