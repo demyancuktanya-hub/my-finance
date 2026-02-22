@@ -498,17 +498,6 @@ if (btnSeeAll) {
 
 init();
 initSettingsUI();
-// "См. все" -> нажимаем вкладку История
-const btnSeeAll = document.getElementById("btnSeeAll");
-const tabHistory = document.querySelector('.tab[data-page="history"]');
-
-if (btnSeeAll && tabHistory) {
-  btnSeeAll.addEventListener("click", (e) => {
-    e.preventDefault();
-    tabHistory.click();     // переключит на Историю через твой существующий код
-    window.scrollTo(0, 0);  // поднимет вверх
-  });
-}
 document.querySelectorAll(".period-buttons button").forEach(btn => {
   btn.addEventListener("click", () => {
     document.querySelectorAll(".period-buttons button")
@@ -520,11 +509,6 @@ document.querySelectorAll(".period-buttons button").forEach(btn => {
    localStorage.setItem("mf_overview_period", overviewPeriod); renderOverview();
   });
 });
-// подсветка кнопки при загрузке страницы
-document.querySelectorAll(".period-buttons button").forEach(b => {
-  b.classList.toggle("active", b.dataset.period === overviewPeriod);
-});
-const btnSeeAll = document.getElementById("btnSeeAll");
 
 if (btnSeeAll) {
   btnSeeAll.addEventListener("click", () => {
