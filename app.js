@@ -495,41 +495,19 @@ if (btnSeeAll) {
 }
     setPage("overview");
 }
-
-init();
-initSettingsUI();
-document.querySelectorAll(".period-buttons button").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll(".period-buttons button")
-      .forEach(b => b.classList.remove("active"));
-
-    btn.classList.add("active");
-
-    overviewPeriod = btn.dataset.period;
-   localStorage.setItem("mf_overview_period", overviewPeriod); renderOverview();
-  });
-});
-
-btnSeeAll.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  // 1) пробуем штатно
-  if (typeof setPage === "function") {
-    setPage("history");
-  }
-
-  // 2) запасной вариант: "нажать" нижнюю вкладку История
-  const tabHistory =
-    document.querySelector('.tab[data-page="history"]') ||
-    document.querySelector('button[data-page="history"]') ||
-    document.querySelector('[data-page="history"].tab');
-
-  if (tabHistory) tabHistory.click();
-
-  window.scrollTo(0, 0);
-});
-}
 document.addEventListener("DOMContentLoaded", () => {
-  if (typeof init === "function") init();
-  if (typeof initSettingsUI === "function") initSettingsUI();
+  initSettingsUI();
+  init();
+
+  document.querySelectorAll(".period-buttons button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".period-buttons button")
+        .forEach(b => b.classList.remove("active"));
+
+      btn.classList.add("active");
+      overviewPeriod = btn.dataset.period;
+      localStorage.setItem("mf_overview_period", overviewPeriod);
+      renderOverview();
+    });
+  });
 });
