@@ -23,10 +23,84 @@ const INCOME_CATEGORIES = [
   { id: "investments", name: "Инвестиции", icon: "💰" },
   { id: "other_income", name: "Другое", icon: "📦" }
 ];
-function rub(n){
+    // ===== Settings =====
+const SETTINGS_KEY = "mf_settings";
+
+const defaultSettings = {
+  theme: "dark",      // "dark" | "light"
+  currency: "RUB"     // "RUB" | "EUR" | "USD"
+};
+
+function loadSettings() {
+  try {
+    const raw = localStorage.getItem(SETTINGS_KEY);
+    if (!raw) return { ...defaultSettings };
+    const parsed = JSON.parse(raw);
+    return { ...defaultSettings, ...parsed };
+  } catch (e) {
+    return { ...defaultSettings };
+  }
+}
+
+function saveSettings(settings) {
+  localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+}
+
+function applyTheme(theme) {
+  // Светлая тема у тебя уже через body.theme-light — сохраняем это
+  document.body.classList.toggle("theme-light", theme === "light");
+}
+
+function getCurrencySymbol(code) {
+  if (code === "RUB") return "₽";
+  if (code === "EUR") return "€";
+  if (code === "USD") return "$";
+  return code;
+}
+
+// Глобально доступно для форматирования сумм
+let settings = loadSettings();
+
+function initSettingsUI() {
+  const themeSelect = document.getElementById("settingTheme");
+  const currencySelect = document.getElementById("settingCurrency");
+
+  // Если ты ещё не добавил HTML — просто выходим, ничего не ломаем
+  if (!themeSelect || !currencySelect) return;
+
+  // Проставляем текущие значения
+  themeSelect.value = settings.theme;
+  currencySelect.value = settings.currency;
+
+  // Слушатели
+  themeSelect.addEventListener("change", () => {
+    settings.theme = themeSelect.value;
+    applyTheme(settings.theme);
+    saveSettings(settings);
+    // если у тебя есть тосты — можно показать тут
+  });
+
+  currencySelect.addEventListener("change", () => {
+    settings.currency = currencySelect.value;
+    saveSettings(settings);
+
+    // Важно: после смены валюты нужно перерисовать суммы на экране
+    // Подставь свои функции рендера:
+    if (typeof renderOverview === "function") renderOverview();
+    if (typeof renderHistory === "function") renderHistory();
+    if (typeof renderAnalysis === "function") renderAnalysis();
+  });
+}
+
+// Применяем настройки при старте
+applyTheme(settings.theme);                                                  
+  function rub(n){
   const sign = n < 0 ? "-" : "";
   const v = Math.abs(Math.round(n));
-  return sign + v.toLocaleString("ru-RU") + " ₽";
+
+  const symbol = getCurrencySymbol(settings.currency);
+
+  return sign + v.toLocaleString("ru-RU") + " " + symbol;
 }
 
 function nowISO(){
