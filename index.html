@@ -116,7 +116,30 @@
   <!-- Приветствие -->
   <div class="card">
     <div id="profileGreeting" style="font-size:20px;font-weight:700;">Привет 👋</div>
+  </div><div class="card settings-card" id="settingsCard">
+  <h3 class="card-title">Настройки</h3>
+
+  <div class="field">
+    <label class="field-label" for="settingTheme">Тема</label>
+    <select id="settingTheme" class="field-control">
+      <option value="dark">Тёмная</option>
+      <option value="light">Светлая (голубая)</option>
+    </select>
   </div>
+
+  <div class="field">
+    <label class="field-label" for="settingCurrency">Валюта</label>
+    <select id="settingCurrency" class="field-control">
+      <option value="RUB">₽ RUB</option>
+      <option value="EUR">€ EUR</option>
+      <option value="USD">$ USD</option>
+    </select>
+  </div>
+
+  <div class="hint">
+    Настройки сохраняются автоматически.
+  </div>
+</div>
 <div class="card">
   <label>Тема</label>
   <select id="themeSelect">
