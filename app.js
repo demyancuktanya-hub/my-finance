@@ -481,3 +481,14 @@ function init(){
 
 init();
 initSettingsUI();
+document.querySelectorAll(".period-buttons button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".period-buttons button")
+      .forEach(b => b.classList.remove("active"));
+
+    btn.classList.add("active");
+
+    overviewPeriod = btn.dataset.period;
+    renderOverview();
+  });
+});
