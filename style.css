@@ -377,3 +377,10 @@ body.light .fab {
 section.page[data-page="profile"].active #btnClearAll {
   display: flex;
 }
+#btnSettings {
+  display: none;
+}
+
+section.page[data-page="profile"].active #btnSettings {
+  display: flex;
+}
