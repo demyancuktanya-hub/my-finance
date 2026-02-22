@@ -506,3 +506,10 @@ document.querySelectorAll(".period-buttons button").forEach(btn => {
 document.querySelectorAll(".period-buttons button").forEach(b => {
   b.classList.toggle("active", b.dataset.period === overviewPeriod);
 });
+const btnSeeAll = document.getElementById("btnSeeAll");
+
+if (btnSeeAll) {
+  btnSeeAll.addEventListener("click", () => {
+    setPage("history");
+  });
+}
