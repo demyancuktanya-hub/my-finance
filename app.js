@@ -253,9 +253,9 @@ const monthExpense = expense;
   $("#monthIncome").textContent = "+" + rub(monthIncome).replace("-", "");
   $("#monthExpense").textContent = "-" + rub(monthExpense).replace("-", "");
 
-  const recent = [...tx]
-    .sort((a,b)=> new Date(b.createdAt) - new Date(a.createdAt))
-    .slice(0,5);
+  const recent = [...filtered]
+  .sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt))
+  .slice(0, 5);
 
   const list = $("#recentList");
   list.innerHTML = "";
