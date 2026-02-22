@@ -369,5 +369,11 @@ body.theme-light input {
 body.light .fab {
   background: #2b7cff;
 }
-#btnClearAll { display: none; }
-section.page[data-page="profile"].active #btnClearAll { display: block; }
+/* Показывать кнопку очистки только в профиле */
+#btnClearAll {
+  display: none;
+}
+
+section.page[data-page="profile"].active #btnClearAll {
+  display: flex;
+}
