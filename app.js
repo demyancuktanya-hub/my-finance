@@ -382,8 +382,15 @@ function renderAnalysis(){
 function init(){
   // Nav
   $$(".navItem").forEach(b => b.addEventListener("click", ()=> setPage(b.dataset.go)));
-  $("#btnSeeAll").addEventListener("click", ()=> setPage("history"));
-
+// кнопка "См. все"
+const btnSeeAll = document.getElementById("btnSeeAll");
+if (btnSeeAll) {
+  btnSeeAll.addEventListener("click", (e) => {
+    e.preventDefault();
+    setPage("history");
+    window.scrollTo(0, 0);
+  });
+}
   // Add modal
   $("#openAdd").addEventListener("click", openModal);
   $("#closeAdd").addEventListener("click", closeModal);
@@ -486,13 +493,7 @@ function init(){
   });
 
   // First render
-  // кнопка "См. все" в блоке "Недавние"
-const btnSeeAll = document.getElementById("btnSeeAll");
-if (btnSeeAll) {
-  btnSeeAll.addEventListener("click", () => {
-    setPage("history");
-  });
-}
+  
     setPage("overview");
 }
 
