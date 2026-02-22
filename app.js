@@ -529,3 +529,7 @@ btnSeeAll.addEventListener("click", (e) => {
   window.scrollTo(0, 0);
 });
 }
+document.addEventListener("DOMContentLoaded", () => {
+  if (typeof init === "function") init();
+  if (typeof initSettingsUI === "function") initSettingsUI();
+});
