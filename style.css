@@ -384,3 +384,45 @@ section.page[data-page="profile"].active #btnClearAll {
 section.page[data-page="profile"].active #btnSettings {
   display: flex;
 }
+/* Settings UI */
+.settings-card .card-title {
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+  margin: 12px 0;
+}
+
+.field-label {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.field-control {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.18);
+  color: inherit;
+  outline: none;
+}
+
+body.theme-light .field-control {
+  background: rgba(255,255,255,0.75);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.field-control:focus-visible {
+  box-shadow: 0 0 0 3px rgba(90, 169, 255, 0.35);
+}
+
+.hint {
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: 0.75;
+}
