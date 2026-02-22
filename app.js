@@ -498,6 +498,17 @@ if (btnSeeAll) {
 
 init();
 initSettingsUI();
+// "См. все" -> нажимаем вкладку История
+const btnSeeAll = document.getElementById("btnSeeAll");
+const tabHistory = document.querySelector('.tab[data-page="history"]');
+
+if (btnSeeAll && tabHistory) {
+  btnSeeAll.addEventListener("click", (e) => {
+    e.preventDefault();
+    tabHistory.click();     // переключит на Историю через твой существующий код
+    window.scrollTo(0, 0);  // поднимет вверх
+  });
+}
 document.querySelectorAll(".period-buttons button").forEach(btn => {
   btn.addEventListener("click", () => {
     document.querySelectorAll(".period-buttons button")
