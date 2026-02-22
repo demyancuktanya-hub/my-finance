@@ -1,4 +1,4 @@
-let overviewPeriod = "30"; 
+let overviewPeriod = localStorage.getItem("mf_overview_period") || "30";
 // варианты: "today", "7", "30", "all"
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => Array.from(document.querySelectorAll(s));
@@ -499,6 +499,10 @@ document.querySelectorAll(".period-buttons button").forEach(btn => {
     btn.classList.add("active");
 
     overviewPeriod = btn.dataset.period;
-    renderOverview();
+   localStorage.setItem("mf_overview_period", overviewPeriod); renderOverview();
   });
+});
+// подсветка кнопки при загрузке страницы
+document.querySelectorAll(".period-buttons button").forEach(b => {
+  b.classList.toggle("active", b.dataset.period === overviewPeriod);
 });
