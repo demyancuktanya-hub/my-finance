@@ -426,3 +426,23 @@ body.theme-light .field-control {
   font-size: 12px;
   opacity: 0.75;
 }
+.period-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.period-buttons button {
+  flex: 1;
+  padding: 8px 0;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.period-buttons button.active {
+  background: rgba(90, 169, 255, 0.25);
+  border-color: rgba(90, 169, 255, 0.6);
+}
