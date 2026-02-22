@@ -518,13 +518,6 @@ btnSeeAll.addEventListener("click", (e) => {
     setPage("history");
   }
 
-  // 2) запасной вариант: "нажать" нижнюю вкладку История
-  const tabHistory =
-    document.querySelector('.tab[data-page="history"]') ||
-    document.querySelector('button[data-page="history"]') ||
-    document.querySelector('[data-page="history"].tab');
-
-  if (tabHistory) tabHistory.click();
 
   window.scrollTo(0, 0);
 });
