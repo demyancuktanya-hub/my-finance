@@ -1,4 +1,5 @@
-
+let overviewPeriod = "30"; 
+// варианты: "today", "7", "30", "all"
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => Array.from(document.querySelectorAll(s));
 
@@ -204,7 +205,39 @@ function calc(){
 }
 
 function renderOverview(){
-  const {balance, monthIncome, monthExpense} = calc();
+  let filtered = [...tx];
+
+const now = new Date();
+
+if (overviewPeriod === "today") {
+  filtered = filtered.filter(t => {
+    const d = new Date(t.createdAt);
+    return d.toDateString() === now.toDateString();
+  });
+}
+
+if (overviewPeriod === "7") {
+  const past = new Date();
+  past.setDate(now.getDate() - 7);
+  filtered = filtered.filter(t => new Date(t.createdAt) >= past);
+}
+
+if (overviewPeriod === "30") {
+  const past = new Date();
+  past.setDate(now.getDate() - 30);
+  filtered = filtered.filter(t => new Date(t.createdAt) >= past);
+}
+
+// считаем вручную
+let balance = 0;
+let monthIncome = 0;
+let monthExpense = 0;
+
+filtered.forEach(t => {
+  balance += t.amount;
+  if (t.amount > 0) monthIncome += t.amount;
+  if (t.amount < 0) monthExpense += t.amount;
+});
 
   $("#balance").textContent = rub(balance);
   $("#monthIncome").textContent = "+" + rub(monthIncome).replace("-", "");
