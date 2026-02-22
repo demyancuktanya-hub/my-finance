@@ -228,16 +228,26 @@ if (overviewPeriod === "30") {
   filtered = filtered.filter(t => new Date(t.createdAt) >= past);
 }
 
-// считаем вручную
-let balance = 0;
-let monthIncome = 0;
-let monthExpense = 0;
+// считаем правильно по типу операции
+let income = 0;
+let expense = 0;
 
 filtered.forEach(t => {
-  balance += t.amount;
-  if (t.amount > 0) monthIncome += t.amount;
-  if (t.amount < 0) monthExpense += t.amount;
+  const amount = Number(t.amount) || 0;
+  const type = t.type; // income / expense
+
+  if (type === "income") income += amount;
+  else if (type === "expense") expense += amount;
+  else {
+    // запасной вариант если вдруг где-то знак
+    if (amount >= 0) income += amount;
+    else expense += Math.abs(amount);
+  }
 });
+
+const balance = income - expense;
+const monthIncome = income;
+const monthExpense = expense;
 
   $("#balance").textContent = rub(balance);
   $("#monthIncome").textContent = "+" + rub(monthIncome).replace("-", "");
