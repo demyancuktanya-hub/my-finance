@@ -486,7 +486,14 @@ function init(){
   });
 
   // First render
-  setPage("overview");
+  // кнопка "См. все" в блоке "Недавние"
+const btnSeeAll = document.getElementById("btnSeeAll");
+if (btnSeeAll) {
+  btnSeeAll.addEventListener("click", () => {
+    setPage("history");
+  });
+}
+    setPage("overview");
 }
 
 init();
