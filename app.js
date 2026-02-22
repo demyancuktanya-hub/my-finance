@@ -511,15 +511,4 @@ document.querySelectorAll(".period-buttons button").forEach(btn => {
   });
 });
 
-btnSeeAll.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  // 1) пробуем штатно
-  if (typeof setPage === "function") {
-    setPage("history");
-  }
-
-
-  window.scrollTo(0, 0);
-});
 }
