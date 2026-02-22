@@ -446,3 +446,7 @@ body.theme-light .field-control {
   background: rgba(90, 169, 255, 0.25);
   border-color: rgba(90, 169, 255, 0.6);
 }
+#btnSeeAll{
+  position: relative;
+  z-index: 10;
+}
