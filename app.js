@@ -123,7 +123,9 @@ function loadTx(){
 }
 
 function saveTx(arr){
-  // === Budgets ===
+  localStorage.setItem(LS_KEY, JSON.stringify(arr));
+}
+// === Budgets ===
 const BUDGETS_KEY = "mf_budgets";
 
 function loadBudgets() {
@@ -138,8 +140,6 @@ function loadBudgets() {
 
 function saveBudgets(obj) {
   localStorage.setItem(BUDGETS_KEY, JSON.stringify(obj));
-}
-  localStorage.setItem(LS_KEY, JSON.stringify(arr));
 }
 
 let tx = loadTx(); // {id, type: 'expense'|'income', amount, categoryId, note, createdAt}
