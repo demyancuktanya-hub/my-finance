@@ -1,3 +1,7 @@
+window.onerror = function (msg, src, line, col, err) {
+  alert("ОШИБКА в app.js:\n" + msg + "\nСтрока: " + line);
+};
+alert("app.js загрузился ✅");
 let overviewPeriod = localStorage.getItem("mf_overview_period") || "30";
 // варианты: "today", "7", "30", "all"
 const $ = (s) => document.querySelector(s);
