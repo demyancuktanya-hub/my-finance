@@ -394,6 +394,9 @@ function renderAnalysis(){
   root.innerHTML = "";
 
   rows.forEach(r => {
+    const spent = r.amount;
+const limit = budgets[r.cat.id] || 0;
+const percent = limit > 0 ? Math.min((spent / limit) * 100, 100) : 0;
     const line = document.createElement("div");
     line.className = "item";
     line.innerHTML = `
@@ -402,11 +405,32 @@ function renderAnalysis(){
         <div>
           <div class="item-title">${r.cat.name}</div>
           <div class="item-sub">Доля: ${Math.round((r.amount/sum)*100)}%</div>
+       ${limit > 0 ? `
+  <div class="item-sub">
+    ${rub(spent)} из ${rub(limit)} (${Math.round(percent)}%)
+  </div>
+  <div class="progress">
+    <div class="progress-fill" style="width:${percent}%; background:${percent >= 100 ? '#ef4444' : '#3b82f6'}"></div>
+  </div>
+` : ``}
         </div>
       </div>
       <div class="item-amt minus">- ${rub(r.amount).replace("-", "")}</div>
     `;
     root.appendChild(line);
+  line.addEventListener("click", () => {
+  const value = prompt("Введите бюджет для категории:", limit || "");
+  if (value === null) return;
+
+  const num = Number(value);
+  if (!isNaN(num) && num >= 0) {
+    budgets[r.cat.id] = num;
+    saveBudgets(budgets);
+    renderAnalysis();
+  } else {
+    alert("Введите число, например 5000");
+  }
+});
   });
 }
 
