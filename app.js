@@ -422,8 +422,9 @@ const percent = limit > 0 ? Math.min((spent / limit) * 100, 100) : 0;
   <div class="item-amt minus">- ${rub(spent)}</div>
 `;
 
-    root.appendChild(line);
-  let pressTimer;
+  root.appendChild(line);
+
+let pressTimer;
 
 line.addEventListener("touchstart", () => {
   pressTimer = setTimeout(() => {
@@ -447,19 +448,6 @@ line.addEventListener("touchstart", () => {
 
 line.addEventListener("touchend", () => clearTimeout(pressTimer));
 line.addEventListener("touchmove", () => clearTimeout(pressTimer));
-  const value = prompt("Введите бюджет для категории:", limit || "");
-  if (value === null) return;
-
-  const num = Number(value);
-  if (!isNaN(num) && num >= 0) {
-    budgets[r.cat.id] = num;
-    saveBudgets(budgets);
-    renderAnalysis();
-  } else {
-    alert("Введите число, например 5000");
-  }
-});
-  });
 }
 
 function init(){
