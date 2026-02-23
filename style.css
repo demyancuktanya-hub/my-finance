@@ -1,5 +1,5 @@
 :root{
-  --bg:#000;
+  --bg: linear-gradient(135deg, #6C63FF, #B56CFF, #4DB7FF);
   --card:#14161b;
   --card2:#1a1d24;
   --stroke:#2a2f3a;
