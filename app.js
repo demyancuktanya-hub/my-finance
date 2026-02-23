@@ -1,7 +1,3 @@
-window.onerror = function (msg, src, line, col, err) {
-  alert("ОШИБКА в app.js:\n" + msg + "\nСтрока: " + line);
-};
-alert("app.js загрузился ✅");
 let overviewPeriod = localStorage.getItem("mf_overview_period") || "30";
 // варианты: "today", "7", "30", "all"
 const $ = (s) => document.querySelector(s);
@@ -426,9 +422,8 @@ const percent = limit > 0 ? Math.min((spent / limit) * 100, 100) : 0;
   <div class="item-amt minus">- ${rub(spent)}</div>
 `;
 
-  root.appendChild(line);
-
-let pressTimer;
+    root.appendChild(line);
+  let pressTimer;
 
 line.addEventListener("touchstart", () => {
   pressTimer = setTimeout(() => {
@@ -445,18 +440,27 @@ line.addEventListener("touchstart", () => {
       saveBudgets(budgets);
       renderAnalysis();
     } else {
-      alert("ТЕСТ: код обновился ✅");
+      alert("Введите число, например 5000");
     }
   }, 500); // 0.5 секунды
 });
 
 line.addEventListener("touchend", () => clearTimeout(pressTimer));
 line.addEventListener("touchmove", () => clearTimeout(pressTimer));
+  const value = prompt("Введите бюджет для категории:", limit || "");
+  if (value === null) return;
 
-}); // ✅ закрыли rows.forEach(...)
-}   // ✅ закрыли renderAnalysis()
-
-function init(){
+  const num = Number(value);
+  if (!isNaN(num) && num >= 0) {
+    budgets[r.cat.id] = num;
+    saveBudgets(budgets);
+    renderAnalysis();
+  } else {
+    alert("Введите число, например 5000");
+  }
+});
+  });
+}
 
 function init(){
   // Nav
