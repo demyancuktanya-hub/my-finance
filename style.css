@@ -294,11 +294,13 @@ body.theme-light {
     color: #ffffff;
 }
 
-body.theme-light .card {
-  background: #f8fbff;
-  border: 1px solid rgba(59, 130, 246, 0.15);
-  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.08);
-  color: #0f172a;
+body.theme-light .card{
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.30);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: rgba(255,255,255,0.95);
 }
 
 body.theme-light .muted {
