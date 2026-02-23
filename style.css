@@ -289,7 +289,8 @@ h2{margin:0; font-size:34px}
 }/* ===== Light Blue Theme ===== */
 
 body.theme-light {
-    background: linear-gradient(135deg, #7C83FF, #B08CFF, #6EC5FF);
+    background: linear-gradient(135deg, #5B5F97 0%, #8E7CFF 40%, #6AA9FF 100%);
+    background-attachment: fixed;
     color: #ffffff;
 }
 
