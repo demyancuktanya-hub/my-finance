@@ -490,6 +490,7 @@ body.theme-light .analysisCard{
   backdrop-filter: blur(22px);
   -webkit-backdrop-filter: blur(22px);
 }
+
 /* ============================= */
 /*        iOS LIGHT GLASS        */
 /* ============================= */
@@ -562,77 +563,72 @@ body.theme-light .fab {
   background: #007aff;
   border-radius: 50%;
   box-shadow: 0 6px 18px rgba(0, 122, 255, 0.35);
-  }
+}
 /* ============================= */
-/*        iOS LIGHT GLASS        */
+/*   LIGHT BLUE GLASS (как было) */
 /* ============================= */
 
-body.theme-light {
-  background: #f2f2f7;
-  color: #1c1c1e;
+body.theme-light{
+  background: linear-gradient(135deg, #5b55d6 0%, #7a66ff 45%, #4aa3ff 100%);
+  background-attachment: fixed;
+  color: #ffffff;
 }
 
-/* Карточки */
-body.theme-light .card {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.08);
-  color: #1c1c1e;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* карточки / блоки */
+body.theme-light .card{
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.22);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.20);
+  color: rgba(255,255,255,0.95);
+  border-radius: 22px;
 }
 
-body.theme-light .card:active {
-  transform: scale(0.98);
+/* строки истории (если это тоже .card — ок; если отдельный класс — напишу точнее) */
+body.theme-light .muted{
+  color: rgba(255,255,255,0.70);
 }
 
-/* Кнопки */
-body.theme-light .menuItem {
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(15px);
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  color: #007aff;
-  font-weight: 500;
-  transition: all 0.15s ease;
-}
-
-body.theme-light .menuItem:active {
-  transform: scale(0.97);
-  opacity: 0.8;
-}
-
-body.theme-light .menuItem.danger {
-  color: #ff3b30;
-}
-
-/* Инпуты */
+/* инпуты в поиске и форме */
 body.theme-light input,
-body.theme-light select {
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(15px);
-  border-radius: 12px;
-  border: 1px solid rgba(200, 200, 200, 0.4);
-  color: #1c1c1e;
+body.theme-light select{
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.26);
+  color: #fff;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 14px;
 }
 
-/* Нижняя навигация */
-body.theme-light .bottom-nav {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(25px);
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+/* iOS-like кнопки “Настройки/Очистить всё” — без розового */
+body.theme-light .menuItem{
+  background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 16px;
+  color: #ffffff;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+body.theme-light .menuItem.danger{
+  background: rgba(255,59,48,0.14);
+  border: 1px solid rgba(255,59,48,0.28);
+  color: #fff;
 }
 
-body.theme-light .bottom-nav .active {
-  color: #007aff;
+/* нижняя навигация */
+body.theme-light .bottom-nav{
+  background: rgba(20,20,30,0.35);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-top: 1px solid rgba(255,255,255,0.10);
+}
+body.theme-light .bottom-nav .active{
+  color: #4aa3ff;
 }
 
 /* FAB */
-body.theme-light .fab {
-  background: #007aff;
-  border-radius: 50%;
-  box-shadow: 0 6px 18px rgba(0, 122, 255, 0.35);
+body.theme-light .fab{
+  background: rgba(74,163,255,0.95);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.22);
 }
