@@ -441,7 +441,7 @@ line.addEventListener("touchstart", () => {
       saveBudgets(budgets);
       renderAnalysis();
     } else {
-      alert("Введите число, например 5000");
+      alert("ТЕСТ: код обновился ✅");
     }
   }, 500); // 0.5 секунды
 });
