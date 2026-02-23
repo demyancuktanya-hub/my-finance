@@ -452,7 +452,11 @@ line.addEventListener("touchstart", () => {
 
 line.addEventListener("touchend", () => clearTimeout(pressTimer));
 line.addEventListener("touchmove", () => clearTimeout(pressTimer));
-}
+
+}); // ✅ закрыли rows.forEach(...)
+}   // ✅ закрыли renderAnalysis()
+
+function init(){
 
 function init(){
   // Nav
