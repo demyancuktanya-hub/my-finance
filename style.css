@@ -450,3 +450,16 @@ body.theme-light .field-control {
   position: relative;
   z-index: 10;
 }
+.progress {
+  height: 6px;
+  background: #2a2a2a;
+  border-radius: 4px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
