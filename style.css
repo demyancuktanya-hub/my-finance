@@ -289,8 +289,8 @@ h2{margin:0; font-size:34px}
 }/* ===== Light Blue Theme ===== */
 
 body.theme-light {
-  background: linear-gradient(180deg, #eaf4ff 0%, #dcecff 100%);
-  color: #0f172a;
+    background: linear-gradient(135deg, #6C63FF, #9F6CFF, #4DB7FF);
+    color: white;
 }
 
 body.theme-light .card {
