@@ -423,7 +423,30 @@ const percent = limit > 0 ? Math.min((spent / limit) * 100, 100) : 0;
 `;
 
     root.appendChild(line);
-  line.addEventListener("click", () => {
+  let pressTimer;
+
+line.addEventListener("touchstart", () => {
+  pressTimer = setTimeout(() => {
+    const value = prompt("Введите бюджет для категории:", limit || "");
+    if (value === null) return;
+
+    const num = Number(value);
+    if (!isNaN(num) && num >= 0) {
+      if (num === 0) {
+        delete budgets[r.cat.id];
+      } else {
+        budgets[r.cat.id] = num;
+      }
+      saveBudgets(budgets);
+      renderAnalysis();
+    } else {
+      alert("Введите число, например 5000");
+    }
+  }, 500); // 0.5 секунды
+});
+
+line.addEventListener("touchend", () => clearTimeout(pressTimer));
+line.addEventListener("touchmove", () => clearTimeout(pressTimer));
   const value = prompt("Введите бюджет для категории:", limit || "");
   if (value === null) return;
 
