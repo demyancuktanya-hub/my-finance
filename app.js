@@ -400,6 +400,40 @@ const percent = limit > 0 ? Math.min((spent / limit) * 100, 100) : 0;
     const line = document.createElement("div");
     line.className = "item";
    line.innerHTML = `
+  // ✅ ТАП по карточке = ввод бюджета
+line.addEventListener("click", () => {
+  const current = budgets[r.cat.id] || 0;
+
+  const input = prompt(
+    `Введите бюджет для "${r.cat.name}"`,
+    current ? String(current) : ""
+  );
+
+  // если нажали "Отмена"
+  if (input === null) return;
+
+  // разрешим ввод "1000,5" и "1000.5"
+  const value = Number(input.replace(",", "."));
+
+  if (!Number.isFinite(value) || value < 0) {
+    alert("Введите число (например: 5000)");
+    return;
+  }
+
+  budgets[r.cat.id] = value;
+
+  // ⚠️ ВАЖНО: тут зависит от вашей функции saveBudgets()
+  // если saveBudgets() принимает аргумент — используйте saveBudgets(budgets)
+  // если не принимает — используйте saveBudgets()
+  try {
+    saveBudgets(budgets);
+  } catch (e) {
+    saveBudgets();
+  }
+
+  // обновить экран "Анализ"
+  renderAnalysis();
+});
   <div class="item-left">
     <div class="item-ico">${r.cat.icon}</div>
     <div>
@@ -443,45 +477,11 @@ function openBudgetPrompt(){
     alert("Введите число, например 5000");
   }
 }
-
-// Телефон и ноут (универсально)
-line.addEventListener("pointerdown", () => {
-  moved = false;
-  pressTimer = setTimeout(openBudgetPrompt, 500); // удержание 0.5 сек
-});
-
-line.addEventListener("pointerup", () => {
-  clearTimeout(pressTimer);
-});
-
-line.addEventListener("pointercancel", () => {
-  clearTimeout(pressTimer);
-});
-
-line.addEventListener("pointermove", () => {
-  moved = true;
-  clearTimeout(pressTimer);
-});
-
-// На ноуте: правый клик
-line.addEventListener("contextmenu", (e) => {
-  e.preventDefault();
+// ✅ Обычный тап / клик
+line.addEventListener("click", () => {
   openBudgetPrompt();
 });
-    line.addEventListener("click", () => {
-  const value = prompt("Введите бюджет для категории:", limit || "");
-  if (value === null) return;
 
-  const num = Number(value);
-  if (!isNaN(num) && num >= 0) {
-    budgets[r.cat.id] = num;
-    saveBudgets(budgets);
-    renderAnalysis();
-  } else {
-    alert("Введите число, например 5000");
-  }
-});
-  });
 }
 
 function init(){
