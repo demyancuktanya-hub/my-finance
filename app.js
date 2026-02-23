@@ -1,3 +1,4 @@
+alert("✅ app.js загрузился");
 window.onerror = function (msg, url, line, col, err) {
   alert("Ошибка JS: " + msg + "\nСтрока: " + line + ":" + col);
 };
