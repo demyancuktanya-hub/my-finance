@@ -423,52 +423,7 @@ const percent = limit > 0 ? Math.min((spent / limit) * 100, 100) : 0;
 `;
 
     root.appendChild(line);
- // === Long press (телефон) + Right click (ноут) для бюджета ===
-let pressTimer = null;
-let moved = false;
-
-function openBudgetPrompt(){
-  const current = budgets[r.cat.id] || 0;
-  const value = prompt("Введите бюджет для категории (0 = убрать):", current || "");
-  if (value === null) return;
-
-  const num = Number(value);
-  if (!isNaN(num) && num >= 0) {
-    if (num === 0) delete budgets[r.cat.id];
-    else budgets[r.cat.id] = num;
-
-    saveBudgets(budgets);
-    renderAnalysis();
-  } else {
-    alert("Введите число, например 5000");
-  }
-}
-
-// Телефон и ноут (универсально)
-line.addEventListener("pointerdown", () => {
-  moved = false;
-  pressTimer = setTimeout(openBudgetPrompt, 500); // удержание 0.5 сек
-});
-
-line.addEventListener("pointerup", () => {
-  clearTimeout(pressTimer);
-});
-
-line.addEventListener("pointercancel", () => {
-  clearTimeout(pressTimer);
-});
-
-line.addEventListener("pointermove", () => {
-  moved = true;
-  clearTimeout(pressTimer);
-});
-
-// На ноуте: правый клик
-line.addEventListener("contextmenu", (e) => {
-  e.preventDefault();
-  openBudgetPrompt();
-});
-    line.addEventListener("click", () => {
+  line.addEventListener("click", () => {
   const value = prompt("Введите бюджет для категории:", limit || "");
   if (value === null) return;
 
