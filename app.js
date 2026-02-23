@@ -123,10 +123,41 @@ function loadTx(){
 }
 
 function saveTx(arr){
+  // === Budgets ===
+const BUDGETS_KEY = "mf_budgets";
+
+function loadBudgets() {
+  try {
+    const raw = localStorage.getItem(BUDGETS_KEY);
+    const obj = raw ? JSON.parse(raw) : {};
+    return typeof obj === "object" && obj !== null ? obj : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveBudgets(obj) {
+  localStorage.setItem(BUDGETS_KEY, JSON.stringify(obj));
+}
   localStorage.setItem(LS_KEY, JSON.stringify(arr));
 }
 
 let tx = loadTx(); // {id, type: 'expense'|'income', amount, categoryId, note, createdAt}
+let budgets = loadBudgets();
+function getCategoryExpensesThisMonth(categoryId) {
+  const now = new Date();
+  const month = now.getMonth();
+  const year = now.getFullYear();
+
+  return tx
+    .filter(t =>
+      t.type === "expense" &&
+      t.categoryId === categoryId &&
+      new Date(t.date).getMonth() === month &&
+      new Date(t.date).getFullYear() === year
+    )
+    .reduce((sum, t) => sum + t.amount, 0);
+}
 let selectedType = "expense";
 let selectedCategoryId = "products";
 let activePage = "overview";
