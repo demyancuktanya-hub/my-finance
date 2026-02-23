@@ -1,7 +1,3 @@
-alert("✅ app.js загрузился");
-window.onerror = function (msg, url, line, col, err) {
-  alert("Ошибка JS: " + msg + "\nСтрока: " + line + ":" + col);
-};
 let overviewPeriod = localStorage.getItem("mf_overview_period") || "30";
 // варианты: "today", "7", "30", "all"
 const $ = (s) => document.querySelector(s);
