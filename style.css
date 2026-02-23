@@ -50,12 +50,17 @@ h2{margin:0; font-size:34px}
 }
 
 .hero{
-  background: radial-gradient(1200px 600px at 15% 0%, rgba(11,121,255,.35), transparent 55%),
-              linear-gradient(180deg, #0d55ff, #0b79ff);
-  border:none;
-  padding:22px;
-  border-radius:28px;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.35);
+  padding: 22px;
+  border-radius: 28px;
+  box-shadow:
+      0 20px 45px rgba(0,0,0,0.25),
+      inset 0 1px 0 rgba(255,255,255,0.25);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
 }
+
 .hero .muted{color:rgba(255,255,255,.75)}
 .hero-left .big{font-size:56px}
 .hero-right{display:flex; flex-direction:column; gap:10px; align-items:flex-end}
