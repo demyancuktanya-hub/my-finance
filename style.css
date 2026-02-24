@@ -122,8 +122,24 @@ h2{margin:0; font-size:34px}
     touch-action:manipulation;
 }
 .item-left{display:flex; align-items:center; gap:12px}
-.item-ico{width:44px; height:44px; border-radius:14px; display:grid; place-items:center;
-  background:rgba(255,255,255,.08);
+.item-ico{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+}
+
+/* LIGHT */
+body.theme-light .item-ico{
+  background: rgba(0,0,0,0.05);
+}
+
+/* DARK */
+body.theme-dark .item-ico{
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
 }
 .item-title{font-weight:800; font-size:20px}
 .item-sub{color:var(--muted); font-weight:700; margin-top:2px}
