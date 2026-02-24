@@ -166,6 +166,36 @@
 
 <div class="card">
   <div id="profileGreeting" class="muted"></div>
+/* ============================= */
+/* LIGHT: FORCE READABLE TEXT    */
+/* ============================= */
+
+/* 1) основной текст на карточках */
+body.theme-light .card,
+body.theme-light .item{
+  color: #111 !important;
+}
+
+/* 2) заголовки/подзаголовки внутри карточек */
+body.theme-light .card .item-title,
+body.theme-light .card h1,
+body.theme-light .card h2,
+body.theme-light .card h3,
+body.theme-light .card p,
+body.theme-light .item .item-title{
+  color: #111 !important;
+}
+
+/* 3) вторичный текст (даты, подписи) */
+body.theme-light .card .muted,
+body.theme-light .item .muted,
+body.theme-light .item .item-sub{
+  color: rgba(0,0,0,0.55) !important;
+}
+
+/* 4) НЕ трогаем суммы плюс/минус */
+body.theme-light .item-amt.plus{ color: var(--green) !important; }
+body.theme-light .item-amt.minus{ color: var(--red) !important; }
 </div>
 
   <!-- Приветствие (ВМЕСТО поля имени) -->
