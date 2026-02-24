@@ -945,3 +945,12 @@ body.theme-light .card:last-of-type {
 body.theme-light .card:last-of-type p {
   color: rgba(0,0,0,0.85) !important;
 }
+/* ============================= */
+/* LIGHT: FORCE BLACK HINT TEXT */
+/* ============================= */
+
+body.theme-light .card:last-of-type,
+body.theme-light .card:last-of-type p,
+body.theme-light .card:last-of-type h3 {
+  color: #000 !important;
+}
