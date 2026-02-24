@@ -681,3 +681,18 @@ body.theme-dark .item-ico{
   place-items: center;
   box-shadow: 0 8px 20px rgba(0,0,0,0.35);
 }
+/* ============================= */
+/* DARK: FORCE HISTORY ICON TILE */
+/* ============================= */
+
+body.theme-dark section.page[data-page="history"] .item-ico,
+body.theme-dark #historyList .item-ico{
+  background: rgba(255,255,255,0.06) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  border-radius: 16px !important;
+  width: 44px !important;
+  height: 44px !important;
+  display: grid !important;
+  place-items: center !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35) !important;
+}
