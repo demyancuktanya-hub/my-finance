@@ -960,3 +960,33 @@ body.theme-light .card:last-of-type *{
   opacity: 1 !important;
   color: #111 !important;
 }
+/* =========================
+   LIGHT: FORCE TEXT READABLE
+   (фикс бледного текста)
+   ========================= */
+
+/* 1) Убираем любую прозрачность у текста в светлой теме */
+body.theme-light .card,
+body.theme-light .card *{
+  opacity: 1 !important;
+}
+
+/* 2) Основной текст — темный */
+body.theme-light{
+  color: #111 !important;
+}
+
+/* 3) То, что было muted — делаем читаемым */
+body.theme-light .muted{
+  color: rgba(0,0,0,0.65) !important;
+  opacity: 1 !important;
+}
+
+/* 4) Заголовки/важный текст внутри карточек */
+body.theme-light .card h1,
+body.theme-light .card h2,
+body.theme-light .card h3,
+body.theme-light .card .item-title{
+  color: #111 !important;
+  opacity: 1 !important;
+}
