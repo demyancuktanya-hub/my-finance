@@ -141,6 +141,23 @@ body.theme-dark .item-ico{
   border: 1px solid rgba(255,255,255,0.08);
   box-shadow: 0 6px 16px rgba(0,0,0,0.35);
 }
+.item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px 14px;
+  border-radius:22px;
+  margin:10px 0;
+}
+/* DARK: GLASS для всей строки (плашки) */
+body.theme-dark .item{
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
 .item-title{font-weight:800; font-size:20px}
 .item-sub{color:var(--muted); font-weight:700; margin-top:2px}
 .item-amt{font-weight:900; font-size:22px}
