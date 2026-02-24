@@ -912,3 +912,14 @@ body.theme-light .card .muted{
 body.theme-light .card h3{
   color: #111 !important;
 }
+/* ============================= */
+/* LIGHT: FIX HINT BLOCK        */
+/* ============================= */
+
+body.theme-light .muted{
+  color: rgba(0,0,0,0.75) !important;
+}
+
+body.theme-light h3{
+  color: #111 !important;
+}
