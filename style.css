@@ -667,3 +667,17 @@ body.theme-dark section.page[data-page="history"] .pill *,
 body.theme-dark section.page[data-page="history"] .category *{
   color: rgba(255,255,255,0.92) !important;
 }
+/* ============================= */
+/* DARK: HISTORY ICON TILE FIX  */
+/* ============================= */
+
+body.theme-dark .item-ico{
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
