@@ -782,3 +782,23 @@ body.theme-light select:invalid{
   color: rgba(0,0,0,0.45) !important;
   -webkit-text-fill-color: rgba(0,0,0,0.45) !important;
 }
+/* ============================= */
+/* LIGHT: SOFTEN BACKGROUND     */
+/* ============================= */
+body.theme-light::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0.18); /* мягкая “дымка” */
+  pointer-events: none;
+  z-index: -1;
+}
+/* LIGHT: calmer glass cards */
+body.theme-light .card{
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.22);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.10);
+}
+body.theme-light .muted{
+  color: rgba(0,0,0,0.45) !important;
+}
