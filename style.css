@@ -990,3 +990,16 @@ body.theme-light .card .item-title{
   color: #111 !important;
   opacity: 1 !important;
 }
+/* ============================= */
+/* LIGHT: FIX HINT CARD (FINAL) */
+/* ============================= */
+
+body.theme-light .card.mt16 .muted{
+  color: #111 !important;
+  opacity: 1 !important;
+}
+
+body.theme-light .card.mt16 .smallText{
+  color: rgba(0,0,0,0.85) !important;
+  opacity: 1 !important;
+}
