@@ -604,7 +604,7 @@ body.theme-light .fab {
 body.theme-light{
   background: linear-gradient(135deg, #5b55d6 0%, #7a66ff 45%, #4aa3ff 100%);
   background-attachment: fixed;
-  color: #ffffff;
+  color: #1a1a1a;
 }
 
 /* карточки / блоки */
@@ -614,7 +614,7 @@ body.theme-light .card{
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   box-shadow: 0 10px 30px rgba(0,0,0,0.20);
-  color: rgba(255,255,255,0.95);
+  color: #1a1a1a;
   border-radius: 22px;
 }
 
@@ -760,4 +760,25 @@ body.theme-light .card,
 body.theme-light .item{
   background: rgba(255,255,255,0.18);
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+/* ============================= */
+/* LIGHT: FIX SELECT TEXT COLOR  */
+/* ============================= */
+
+/* сам select (то, что видно в поле) */
+body.theme-light select{
+  color: rgba(0,0,0,0.78) !important;
+  -webkit-text-fill-color: rgba(0,0,0,0.78) !important; /* иногда нужно на мобильных */
+}
+
+/* текст внутри выпадающего списка */
+body.theme-light option{
+  color: #111 !important;
+  background: #fff !important;
+}
+
+/* если есть плейсхолдер/пустое значение */
+body.theme-light select:invalid{
+  color: rgba(0,0,0,0.45) !important;
+  -webkit-text-fill-color: rgba(0,0,0,0.45) !important;
 }
