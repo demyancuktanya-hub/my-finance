@@ -872,3 +872,28 @@ body.theme-light .item .item-sub{
 /* 4) НЕ трогаем суммы плюс/минус */
 body.theme-light .item-amt.plus{ color: var(--green) !important; }
 body.theme-light .item-amt.minus{ color: var(--red) !important; }
+/* PROFILE NAME FIELD */
+.fieldLabel{
+  display:block;
+  margin: 10px 0 6px;
+  font-weight: 700;
+  opacity: .75;
+}
+
+.input{
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.28);
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  outline: none;
+}
+body.theme-dark .input{
+  color: #fff;
+}
+body.theme-light .input{
+  color: #111;
+  border-color: rgba(255,255,255,0.22);
+}
