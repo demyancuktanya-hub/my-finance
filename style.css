@@ -822,3 +822,23 @@ body.theme-light .card{
   border: 1px solid rgba(255,255,255,0.20);
   box-shadow: 0 10px 26px rgba(0,0,0,0.08);
 }
+/* ============================= */
+/* LIGHT: FIX TEXT ON CARDS/ITEM */
+/* ============================= */
+
+body.theme-light .card,
+body.theme-light .item{
+  color: rgba(0,0,0,0.82) !important;      /* основной текст */
+}
+
+/* подписи/даты/вторичный текст */
+body.theme-light .muted,
+body.theme-light .item-sub,
+body.theme-light .item-title small{
+  color: rgba(0,0,0,0.45) !important;
+}
+
+/* если где-то суммы/цифры наследуют бледный цвет */
+body.theme-light .item-amt{
+  color: rgba(0,0,0,0.88) !important;
+}
