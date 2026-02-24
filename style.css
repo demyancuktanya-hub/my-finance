@@ -1003,3 +1003,6 @@ body.theme-light .card.mt16 .smallText{
   color: rgba(0,0,0,0.85) !important;
   opacity: 1 !important;
 }
+#btnSettings {
+  display: none;
+}
