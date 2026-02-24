@@ -752,3 +752,12 @@ body.theme-dark .item{
   backdrop-filter: blur(22px) saturate(160%) !important;
   -webkit-backdrop-filter: blur(22px) saturate(160%) !important;
 }
+/* ============================= */
+/* LIGHT THEME – SOFT TUNE      */
+/* ============================= */
+
+body.theme-light .card,
+body.theme-light .item{
+  background: rgba(255,255,255,0.18);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
