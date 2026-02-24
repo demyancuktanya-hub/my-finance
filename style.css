@@ -802,3 +802,23 @@ body.theme-light .card{
 body.theme-light .muted{
   color: rgba(0,0,0,0.45) !important;
 }
+/* ============================= */
+/* LIGHT: EXTRA SOFTEN           */
+/* ============================= */
+
+/* лёгкая “дымка” поверх градиента */
+body.theme-light::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0.26); /* было 0.18 → стало мягче */
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* чуть спокойнее карточки */
+body.theme-light .card{
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.20);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+}
