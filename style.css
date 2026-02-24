@@ -413,10 +413,10 @@ body.theme-light .bottom-nav .active {
 body.theme-light .fab {
   background: linear-gradient(135deg, #4facfe, #00c6ff);
   box-shadow: 0 8px 25px rgba(43, 124, 255, 0.5);
-}
+
 
 /* Показывать кнопку очистки только в профиле */
-#btnClearAll {
+{
   display: none;
 }
 
@@ -439,7 +439,7 @@ section.page[data-page="profile"].active #btnSettings {
 
 .field {
   display: grid;
-  gap: 6px;
+}: 6px;
   margin: 12px 0;
 }
 
@@ -933,4 +933,15 @@ body.theme-light .card p{
 
 body.theme-light .card h3{
   color: #111 !important;
+}
+/* ============================= */
+/* LIGHT: FIX HINT CARD ONLY    */
+/* ============================= */
+
+body.theme-light .card:last-of-type {
+  color: #111 !important;
+}
+
+body.theme-light .card:last-of-type p {
+  color: rgba(0,0,0,0.85) !important;
 }
