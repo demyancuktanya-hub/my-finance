@@ -632,3 +632,31 @@ body.theme-light .fab{
   background: rgba(74,163,255,0.95);
   box-shadow: 0 10px 28px rgba(0,0,0,0.22);
 }
+/* ============================= */
+/*   DARK: FIX HISTORY ROWS      */
+/* ============================= */
+
+/* Стиль для строк именно на странице История */
+body.theme-dark section.page[data-page="history"] .card,
+body.theme-dark section.page[data-page="history"] .item,
+body.theme-dark section.page[data-page="history"] .row,
+body.theme-dark section.page[data-page="history"] li,
+body.theme-dark section.page[data-page="history"] .transaction,
+body.theme-dark section.page[data-page="history"] .historyItem {
+  background: rgba(255,255,255,0.06) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  border-radius: 22px !important;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.35) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* Текст внутри строк истории */
+body.theme-dark section.page[data-page="history"] * {
+  color: rgba(255,255,255,0.92);
+}
+
+/* Вторичный текст (даты) — если есть класс muted */
+body.theme-dark section.page[data-page="history"] .muted {
+  color: rgba(255,255,255,0.55) !important;
+}
