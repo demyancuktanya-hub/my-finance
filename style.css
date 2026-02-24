@@ -954,3 +954,9 @@ body.theme-light .card:last-of-type p,
 body.theme-light .card:last-of-type h3 {
   color: #000 !important;
 }
+/* LIGHT: FIX "Подсказка" (читаемость) */
+body.theme-light .card:last-of-type,
+body.theme-light .card:last-of-type *{
+  opacity: 1 !important;
+  color: #111 !important;
+}
