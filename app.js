@@ -571,3 +571,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+// ==============================
+// PROFILE NAME → GREETING
+// ==============================
+(function () {
+  const nameInput = document.getElementById('profileName');
+  const greetEl = document.getElementById('profileGreeting');
+
+  if (!greetEl) return;
+
+  const storageKey = 'mf_profile_name';
+
+  function renderGreeting(name) {
+    const n = (name || '').trim();
+    greetEl.textContent = n ? `Привет, ${n} 👋` : 'Привет 👋';
+  }
+
+  // init from storage
+  const saved = localStorage.getItem(storageKey) || '';
+  if (nameInput) nameInput.value = saved;
+  renderGreeting(saved);
+
+  // live update + save
+  if (nameInput) {
+    nameInput.addEventListener('input', () => {
+      const v = nameInput.value;
+      localStorage.setItem(storageKey, v);
+      renderGreeting(v);
+    });
+  }
+})();
