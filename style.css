@@ -898,13 +898,17 @@ body.theme-light .input{
   border-color: rgba(255,255,255,0.22);
 }
 /* ============================= */
-/* LIGHT: FIX HINT TEXT          */
+/* LIGHT: FORCE READABLE HINT   */
 /* ============================= */
 
-body.theme-light .card .muted{
-  color: rgba(0,0,0,0.6) !important;
+body.theme-light .card{
+  color: #111 !important;
 }
 
-body.theme-light .card p{
-  color: rgba(0,0,0,0.75) !important;
+body.theme-light .card .muted{
+  color: rgba(0,0,0,0.7) !important;
+}
+
+body.theme-light .card h3{
+  color: #111 !important;
 }
