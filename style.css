@@ -923,3 +923,14 @@ body.theme-light .muted{
 body.theme-light h3{
   color: #111 !important;
 }
+/* ============================= */
+/* LIGHT: FIX HINT TEXT FINAL   */
+/* ============================= */
+
+body.theme-light .card p{
+  color: rgba(0,0,0,0.8) !important;
+}
+
+body.theme-light .card h3{
+  color: #111 !important;
+}
