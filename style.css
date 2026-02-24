@@ -897,3 +897,14 @@ body.theme-light .input{
   color: #111;
   border-color: rgba(255,255,255,0.22);
 }
+/* ============================= */
+/* LIGHT: FIX HINT TEXT          */
+/* ============================= */
+
+body.theme-light .card .muted{
+  color: rgba(0,0,0,0.6) !important;
+}
+
+body.theme-light .card p{
+  color: rgba(0,0,0,0.75) !important;
+}
