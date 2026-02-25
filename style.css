@@ -393,8 +393,8 @@ body.theme-light .menuItem.danger {
 body.theme-light input,
 body.theme-light select {
   background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  color: white;
+  border: 1px solid rgba(255, 255, 255, ...);
+  color: #111;                /* ← ВОТ ЭТО ИЗМЕНИ */
   backdrop-filter: blur(12px);
 }
 
