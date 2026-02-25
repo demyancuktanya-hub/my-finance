@@ -397,6 +397,18 @@ body.theme-light select {
   color: #111;                /* ← ВОТ ЭТО ИЗМЕНИ */
   backdrop-filter: blur(12px);
 }
+/* чтобы было видно placeholder в светлой теме */
+body.theme-light input::placeholder {
+  color: rgba(0,0,0,0.45);
+}
+
+/* чтобы текст был виден даже в полях note/search */
+body.theme-light .note,
+body.theme-light .search,
+body.theme-light input.note,
+body.theme-light input.search {
+  color: #111;
+}
 body.theme-light input::placeholder {
   color: rgba(0, 0, 0, 0.45);
 }
