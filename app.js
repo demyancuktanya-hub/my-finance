@@ -633,3 +633,25 @@ document.addEventListener("DOMContentLoaded", () => {
   // Обновляем приветствие
   setGreeting();
 });
+// ===== Имя пользователя =====
+(function initUserName() {
+  const input = document.getElementById("userNameInput");
+  const greeting = document.getElementById("profileGreeting");
+
+  function updateGreeting() {
+    if (!greeting) return;
+    const name = (localStorage.getItem("userName") || "").trim();
+    greeting.textContent = name ? `Привет, ${name} 👋` : "Привет 👋";
+  }
+
+  if (input) {
+    input.value = (localStorage.getItem("userName") || "").trim();
+
+    input.addEventListener("input", () => {
+      localStorage.setItem("userName", input.value.trim());
+      updateGreeting();
+    });
+  }
+
+  updateGreeting();
+})();
