@@ -1020,3 +1020,9 @@ body.theme-light input {
 body.theme-light input::placeholder {
   color: rgba(0, 0, 0, 0.5) !important;
 }
+/* Приветствие показываем ТОЛЬКО на странице profile */
+#profileGreeting { display: none; }
+
+.page.active[data-page="profile"] #profileGreeting {
+  display: block;
+}
