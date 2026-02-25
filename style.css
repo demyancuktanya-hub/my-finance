@@ -433,14 +433,14 @@ body.theme-light .fab {
 }
 
 section.page[data-page="profile"].active #btnClearAll {
-  display: flex;
+  display: block;
 }
 #btnSettings {
   display: none;
 }
 
 section.page[data-page="profile"].active #btnSettings {
-  display: flex;
+  display: block;
 }
 /* Settings UI */
 .settings-card .card-title {
