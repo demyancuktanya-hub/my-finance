@@ -1026,3 +1026,7 @@ body.theme-light input::placeholder {
 .page.active[data-page="profile"] #profileGreeting {
   display: block;
 }
+/* Приветствие только в профиле */
+.page:not([data-page="profile"]) .profile-only {
+  display: none !important;
+}
