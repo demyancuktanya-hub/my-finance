@@ -397,7 +397,9 @@ body.theme-light select {
   color: #111;                /* ← ВОТ ЭТО ИЗМЕНИ */
   backdrop-filter: blur(12px);
 }
-
+body.theme-light input::placeholder {
+  color: rgba(0, 0, 0, 0.45);
+}
 /* Нижняя навигация */
 body.theme-light .bottom-nav {
   background: rgba(255, 255, 255, 0.12);
