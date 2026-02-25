@@ -193,7 +193,6 @@ body.theme-dark .item{
 
 .fab{
   position:fixed; left:50%; transform:translateX(-50%);
-    z-index: 2;
   bottom:100px;
   width:74px; height:74px; border-radius:999px;
   background:linear-gradient(180deg, var(--blue), var(--blue2));
@@ -228,8 +227,6 @@ body.theme-dark .item{
   border-radius:18px;
   padding:6px;
   display:flex; gap:6px;
-  position: relative;
-  z-index: 5;
 }
 .seg{
   flex:1;
@@ -239,8 +236,6 @@ body.theme-dark .item{
   font-weight:900;
   background:transparent;
   color:rgba(255,255,255,.55);
-  pointer-events: auto;
-  cursor: pointer;
 }
 .seg.active{background:linear-gradient(180deg, var(--blue), var(--blue2)); color:white;}
 
@@ -425,13 +420,18 @@ body.theme-light .bottom-nav .active {
 body.theme-light .fab {
   background: linear-gradient(135deg, #4facfe, #00c6ff);
   box-shadow: 0 8px 25px rgba(43, 124, 255, 0.5);
+}
 
+
+section.page[data-page="profile"].active #btnClearAll {
+  display: flex;
+}
 #btnSettings {
   display: none;
 }
 
 section.page[data-page="profile"].active #btnSettings {
-  display: block;
+  display: flex;
 }
 /* Settings UI */
 .settings-card .card-title {
@@ -1025,14 +1025,4 @@ body.theme-light input::placeholder {
 /* Приветствие только в профиле */
 .page:not([data-page="profile"]) .profile-only {
   display: none !important;
-}
-/* FIX: клики по кнопкам периода */
-.period-switch,
-.period-buttons{
-  position: relative;
-  z-index: 50;
-}
-
-.period-buttons button{
-  pointer-events: auto;
 }
