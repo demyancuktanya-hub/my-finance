@@ -426,15 +426,6 @@ body.theme-light .fab {
   background: linear-gradient(135deg, #4facfe, #00c6ff);
   box-shadow: 0 8px 25px rgba(43, 124, 255, 0.5);
 
-
-/* Показывать кнопку очистки только в профиле */
-{
-  display: none;
-}
-
-section.page[data-page="profile"].active #btnClearAll {
-  display: block;
-}
 #btnSettings {
   display: none;
 }
@@ -1034,4 +1025,14 @@ body.theme-light input::placeholder {
 /* Приветствие только в профиле */
 .page:not([data-page="profile"]) .profile-only {
   display: none !important;
+}
+/* FIX: клики по кнопкам периода */
+.period-switch,
+.period-buttons{
+  position: relative;
+  z-index: 50;
+}
+
+.period-buttons button{
+  pointer-events: auto;
 }
