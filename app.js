@@ -553,12 +553,11 @@ if (btnSeeAll) {
     setPage("history");
   });
 }
-    setPage("overview");
-}
+
 document.addEventListener("DOMContentLoaded", () => {
   initSettingsUI();
   init();
-
+setPage("overview");
   document.querySelectorAll(".period-buttons button").forEach(btn => {
     btn.addEventListener("click", () => {
       document.querySelectorAll(".period-buttons button")
