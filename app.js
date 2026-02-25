@@ -601,3 +601,35 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 })();
+// ===== Имя пользователя =====
+
+function getUserName() {
+  const raw = localStorage.getItem("userName") || "";
+  return raw.trim();
+}
+
+function setGreeting() {
+  const el = document.getElementById("profileGreeting");
+  if (!el) return;
+
+  const name = getUserName();
+  el.textContent = name ? `Привет, ${name} 👋` : "Привет 👋";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("userNameInput");
+
+  // Подставляем имя в поле при загрузке
+  if (input) {
+    input.value = getUserName();
+
+    input.addEventListener("input", () => {
+      const value = input.value.trim().slice(0, 20);
+      localStorage.setItem("userName", value);
+      setGreeting();
+    });
+  }
+
+  // Обновляем приветствие
+  setGreeting();
+});
