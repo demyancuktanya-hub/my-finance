@@ -207,6 +207,7 @@ body.theme-dark .item{
   display:none;
   padding:18px;
 }
+.modal { display: none !important; }
 .modal.open{display:flex; align-items:flex-end; justify-content:center;}
 .sheet{
   width:min(520px, 100%);
