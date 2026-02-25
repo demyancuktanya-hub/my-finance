@@ -163,17 +163,26 @@ let selectedCategoryId = "products";
 let activePage = "overview";
 let analysisMonth = new Date();
 
-function setPage(page){
-  activePage = page;
-  $$(".page").forEach(p => p.classList.toggle("active", p.dataset.page === page));
-  $$(".navItem").forEach(b => b.classList.toggle("active", b.dataset.go === page));
+function setPage(page) {
+  // 1) скрыть все страницы
+  document.querySelectorAll("section.page").forEach(s => s.classList.remove("active"));
 
-  const titles = {overview:"Обзор", analysis:"Анализ", history:"История", profile:"Профиль"};
-  $("#pageTitle").textContent = titles[page] || "Мои финансы";
+  // 2) показать нужную
+  const target = document.querySelector(`section.page[data-page="${page}"]`);
+  if (target) target.classList.add("active");
 
-  if(page === "history") renderHistory();
-  if(page === "analysis") renderAnalysis();
-  if(page === "overview") renderOverview();
+  // 3) активная кнопка внизу
+  document.querySelectorAll(".navItem").forEach(b => b.classList.remove("active"));
+  const navBtn = document.querySelector(`.navItem[data-go="${page}"]`);
+  if (navBtn) navBtn.classList.add("active");
+
+  // 4) заголовок (если нужен)
+  const titleMap = { overview: "Обзор", analysis: "Анализ", history: "История", profile: "Профиль" };
+  const h = document.getElementById("pageTitle");
+  if (h) h.textContent = titleMap[page] || "";
+
+  // 5) прокрутка вверх, чтобы “не казалось, что уползло”
+  window.scrollTo(0, 0);
 }
 
 function openModal(){
@@ -558,6 +567,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initSettingsUI();
   init();
 setPage("overview");
+  document.querySelectorAll(".navItem").forEach(btn => {
+  btn.addEventListener("click", () => setPage(btn.dataset.go));
+});
   document.querySelectorAll(".period-buttons button").forEach(btn => {
     btn.addEventListener("click", () => {
       document.querySelectorAll(".period-buttons button")
