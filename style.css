@@ -1013,3 +1013,10 @@ body.theme-light .card.mt16 .smallText{
 #btnSettings {
   display: none;
 }
+body.theme-light input {
+  color: #111 !important;
+}
+
+body.theme-light input::placeholder {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
