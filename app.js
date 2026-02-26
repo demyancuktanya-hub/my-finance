@@ -154,8 +154,8 @@ function getCategoryExpensesThisMonth(categoryId) {
    .filter(t =>
      t.type === "expense" &&
      t.categoryId === categoryId &&
-     new Date(t.date).getMonth() === month &&
-     new Date(t.date).getFullYear() === year
+     new Date(t.createdAt).getMonth() === month &&
+new Date(t.createdAt).getFullYear() === year
    )
    .reduce((sum, t) => sum + t.amount, 0);
 }
