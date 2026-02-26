@@ -242,7 +242,12 @@ function renderOverview(){
 const now = new Date();
 now.setHours(0,0,0,0);
 
-console.log("createdAt sample:", filtered[0]?.createdAt, "parsed:", new Date(filtered[0]?.createdAt).toString());
+if (filtered.length > 0) {
+  alert(
+    "createdAt: " + filtered[0].createdAt +
+    "\nparsed: " + new Date(filtered[0].createdAt)
+  );
+}
  if (overviewPeriod === "today") {
   const start = new Date();
   start.setHours(0,0,0,0);
