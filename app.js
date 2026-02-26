@@ -563,21 +563,19 @@ if (btnSeeAll) {
 document.addEventListener("DOMContentLoaded", () => {
  initSettingsUI();
  init();
+document.querySelectorAll(".period-buttons button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".period-buttons button")
+      .forEach(b => b.classList.remove("active"));
 
- document.querySelectorAll(".period-buttons button").forEach(btn => {
-   btn.addEventListener("click", () => {
-     document.querySelectorAll(".period-buttons button")
-       .forEach(b => b.classList.remove("active"));
-
-     btn.classList.add("active");
-     overviewPeriod = btn.dataset.period;
-     document.getElementById("balance").textContent = "TEST " + overviewPeriod;
+    btn.classList.add("active");
+    overviewPeriod = btn.dataset.period;
+    document.getElementById("balance").textContent = ...
     localStorage.setItem("mf_overview_period", overviewPeriod);
-     renderOverview();
-renderHistory();
-renderAnalysis();
-   });
- });
+    renderOverview();
+    renderHistory();
+    renderAnalysis();
+  });
 });
 // ==============================
 // PROFILE NAME → GREETING
