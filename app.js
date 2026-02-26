@@ -243,11 +243,13 @@ const now = new Date();
 now.setHours(0,0,0,0);
 
 if (overviewPeriod === "today") {
-  filtered = filtered.filter(t => {
-    const d = new Date(t.createdAt);
-    d.setHours(0,0,0,0);
-    return d.getTime() === now.getTime();
-  });
+  const start = new Date();
+  start.setHours(0,0,0,0);
+
+  filtered = filtered.filter(t =>
+    new Date(t.createdAt).getTime() >= start.getTime()
+  );
+}
 
 } else if (overviewPeriod === "7") {
   const past = new Date(now);
