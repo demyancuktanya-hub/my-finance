@@ -568,6 +568,8 @@ document.addEventListener("DOMContentLoaded", () => {
      overviewPeriod = btn.dataset.period;
      localStorage.setItem("mf_overview_period", overviewPeriod);
      renderOverview();
+renderHistory();
+renderAnalysis();
    });
  });
 });
