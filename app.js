@@ -247,18 +247,20 @@ if (overviewPeriod === "today") {
  });
 }
 
-if (overviewPeriod === "7") {
+else if (overviewPeriod === "7") {
  const past = new Date();
  past.setDate(now.getDate() - 7);
  filtered = filtered.filter(t => new Date(t.createdAt) >= past);
 }
 
-if (overviewPeriod === "30") {
+else if (overviewPeriod === "30") {
  const past = new Date();
  past.setDate(now.getDate() - 30);
  filtered = filtered.filter(t => new Date(t.createdAt) >= past);
 }
-
+else if (overviewPeriod === "all") {
+  filtered = [...tx]; // ничего не фильтруем
+}
 // считаем правильно по типу операции
 let income = 0;
 let expense = 0;
