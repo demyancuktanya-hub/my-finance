@@ -262,8 +262,6 @@ if (overviewPeriod === "today") {
 } else if (overviewPeriod === "all") {
   filtered = [...tx];
 }
-const debug = document.getElementById("balance");
-debug.textContent = `(${overviewPeriod}) ${filtered.length}`;
  // считаем правильно по типу операции
 let income = 0;
 let expense = 0;
