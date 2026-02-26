@@ -556,25 +556,24 @@ if (btnSeeAll) {
    setPage("history");
  });
 }
-   setPage("overview");
+   // Period buttons
+document.querySelectorAll(".period-buttons button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".period-buttons button")
+      .forEach(b => b.classList.remove("active"));
+
+    btn.classList.add("active");
+    overviewPeriod = btn.dataset.period;
+    localStorage.setItem("mf_overview_period", overviewPeriod);
+    renderOverview();
+  });
+});
+ setPage("overview");
 }
 document.addEventListener("DOMContentLoaded", () => {
  initSettingsUI();
  init();
 
- document.querySelectorAll(".period-buttons button").forEach(btn => {
-   btn.addEventListener("click", () => {
-     document.querySelectorAll(".period-buttons button")
-       .forEach(b => b.classList.remove("active"));
-
-     btn.classList.add("active");
-     overviewPeriod = btn.dataset.period;
-     localStorage.setItem("mf_overview_period", overviewPeriod);
-     renderOverview();
-renderHistory();
-renderAnalysis();
-   });
- });
 });
 // ==============================
 // PROFILE NAME → GREETING
