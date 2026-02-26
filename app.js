@@ -306,7 +306,21 @@ const monthExpense = expense;
    recent.forEach(t => list.appendChild(renderItem(t)));
  }
 }
+// Делаем функцию доступной из HTML (onclick)
+window.setOverviewPeriod = function (period) {
+  overviewPeriod = period;
+  localStorage.setItem("mf_overview_period", overviewPeriod);
 
+  const buttons = Array.from(document.querySelectorAll(".period-buttons button"));
+  const map = { today: 0, "7": 1, "30": 2, all: 3 };
+  const idx = map[period];
+
+  buttons.forEach((b, i) => {
+    b.classList.toggle("active", i === idx);
+  });
+
+  renderOverview();
+};
 function renderItem(t){
  const list = t.type === "income" ? INCOME_CATEGORIES : CATEGORIES;
 const cat = list.find(c => c.id === t.categoryId) || { name: "Без категории", icon: "❓" };
