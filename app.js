@@ -3,7 +3,12 @@ let overviewPeriod = localStorage.getItem("mf_overview_period") || "30";
 alert("app.js загружен");
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => Array.from(document.querySelectorAll(s));
-
+// TEST: ловим клики по кнопкам периода (временно)
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".period-buttons button");
+  if (!btn) return;
+  alert("Нажата кнопка периода: " + (btn.dataset.period || "нет data-period"));
+});
 const LS_KEY = "my_finance_transactions_v1";
 
 const CATEGORIES = [
