@@ -571,7 +571,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
      btn.classList.add("active");
      overviewPeriod = btn.dataset.period;
-     localStorage.setItem("mf_overview_period", overviewPeriod);
+     document.getElementById("balance").textContent = "TEST " + overviewPeriod;
+    localStorage.setItem("mf_overview_period", overviewPeriod);
      renderOverview();
 renderHistory();
 renderAnalysis();
