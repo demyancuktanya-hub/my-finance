@@ -237,6 +237,7 @@ function calc(){
 }
 
 function renderOverview(){
+ alert("renderOverview запустился");
  let filtered = [...tx];
 
 const now = new Date();
