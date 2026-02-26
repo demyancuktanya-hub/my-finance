@@ -237,26 +237,17 @@ function calc(){
 }
 
 function renderOverview(){
- alert("renderOverview запустился");
  let filtered = [...tx];
 
 const now = new Date();
 now.setHours(0,0,0,0);
 
-if (filtered.length > 0) {
-  alert(
-    "createdAt: " + filtered[0].createdAt +
-    "\nparsed: " + new Date(filtered[0].createdAt)
-  );
-}
- if (overviewPeriod === "today") {
-  const start = new Date();
-  start.setHours(0,0,0,0);
-
-  filtered = filtered.filter(t =>
-    new Date(t.createdAt).getTime() >= start.getTime()
-  );
-}
+if (overviewPeriod === "today") {
+  filtered = filtered.filter(t => {
+    const d = new Date(t.createdAt);
+    d.setHours(0,0,0,0);
+    return d.getTime() === now.getTime();
+  });
 
 } else if (overviewPeriod === "7") {
   const past = new Date(now);
@@ -572,23 +563,19 @@ if (btnSeeAll) {
 document.addEventListener("DOMContentLoaded", () => {
  initSettingsUI();
  init();
- const periodWrap = document.querySelector(".period-buttons");
-if (periodWrap) {
-  periodWrap.addEventListener("click", (e) => {
-    const btn = e.target.closest("button[data-period]");
-    if (!btn) return;
+document.querySelectorAll(".period-buttons button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".period-buttons button")
+      .forEach(b => b.classList.remove("active"));
 
-    periodWrap.querySelectorAll("button").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
-
     overviewPeriod = btn.dataset.period;
+    document.getElementById("balance").textContent = ...
     localStorage.setItem("mf_overview_period", overviewPeriod);
-
     renderOverview();
     renderHistory();
     renderAnalysis();
   });
-
 });
 // ==============================
 // PROFILE NAME → GREETING
