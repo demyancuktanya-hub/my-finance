@@ -1,3 +1,4 @@
+alert("app.js v22 загружен");
 let overviewPeriod = localStorage.getItem("mf_overview_period") || "30";
 // варианты: "today", "7", "30", "all"
 alert("app.js загружен");
