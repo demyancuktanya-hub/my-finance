@@ -1,14 +1,8 @@
 let overviewPeriod = localStorage.getItem("mf_overview_period") || "30";
 // варианты: "today", "7", "30", "all"
-alert("app.js загружен");
+
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => Array.from(document.querySelectorAll(s));
-// TEST: ловим клики по кнопкам периода (временно)
-document.addEventListener("click", (e) => {
-  const btn = e.target.closest(".period-buttons button");
-  if (!btn) return;
-  alert("Нажата кнопка периода: " + (btn.dataset.period || "нет data-period"));
-});
 const LS_KEY = "my_finance_transactions_v1";
 
 const CATEGORIES = [
@@ -306,21 +300,6 @@ const monthExpense = expense;
    recent.forEach(t => list.appendChild(renderItem(t)));
  }
 }
-// Делаем функцию доступной из HTML (onclick)
-window.setOverviewPeriod = function (period) {
-  overviewPeriod = period;
-  localStorage.setItem("mf_overview_period", overviewPeriod);
-
-  const buttons = Array.from(document.querySelectorAll(".period-buttons button"));
-  const map = { today: 0, "7": 1, "30": 2, all: 3 };
-  const idx = map[period];
-
-  buttons.forEach((b, i) => {
-    b.classList.toggle("active", i === idx);
-  });
-
-  renderOverview();
-};
 function renderItem(t){
  const list = t.type === "income" ? INCOME_CATEGORIES : CATEGORIES;
 const cat = list.find(c => c.id === t.categoryId) || { name: "Без категории", icon: "❓" };
