@@ -238,30 +238,29 @@ function calc(){
 function renderOverview(){
  let filtered = [...tx];
 
-const now = new Date();
-now.setHours(0,0,0,0);
+const nowTime = Date.now();
 
 if (overviewPeriod === "today") {
-  filtered = filtered.filter(t => {
-    const d = new Date(t.createdAt);
-    d.setHours(0,0,0,0);
-    return d.getTime() === now.getTime();
+  const startOfDay = new Date();
+  startOfDay.setHours(0, 0, 0, 0);
+  const startTime = startOfDay.getTime();
+
+  filtered = tx.filter(t => {
+    const tTime = new Date(t.createdAt).getTime();
+    return tTime >= startTime;
   });
 
 } else if (overviewPeriod === "7") {
-  const past = new Date(now);
-  past.setDate(past.getDate() - 7);
-  filtered = filtered.filter(t => new Date(t.createdAt) >= past);
+  const pastTime = nowTime - 7 * 24 * 60 * 60 * 1000;
+  filtered = tx.filter(t => new Date(t.createdAt).getTime() >= pastTime);
 
 } else if (overviewPeriod === "30") {
-  const past = new Date(now);
-  past.setDate(past.getDate() - 30);
-  filtered = filtered.filter(t => new Date(t.createdAt) >= past);
+  const pastTime = nowTime - 30 * 24 * 60 * 60 * 1000;
+  filtered = tx.filter(t => new Date(t.createdAt).getTime() >= pastTime);
 
 } else if (overviewPeriod === "all") {
   filtered = [...tx];
 }
- // считаем правильно по типу операции
 let income = 0;
 let expense = 0;
 
