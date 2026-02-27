@@ -234,10 +234,12 @@ function calc(){
 
  return {balance, monthIncome, monthExpense};
 }
-
+function getTxDate(t) {
+  // поддерживаем оба варианта: createdAt и date
+  return new Date(t.createdAt || t.date || 0);
+}
 function renderOverview(){
  let filtered = [...tx];
-console.log("Все записи:", tx.map(t => t.createdAt));
 const nowTime = Date.now();
 
 if (overviewPeriod === "today") {
@@ -246,7 +248,7 @@ if (overviewPeriod === "today") {
   const startTime = startOfDay.getTime();
 
   filtered = tx.filter(t => {
-    const tTime = new Date(t.createdAt).getTime();
+    const tTime = new Date(t.createdAt || t.date).getTime();
     return tTime >= startTime;
   });
 
