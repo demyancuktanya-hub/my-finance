@@ -254,11 +254,11 @@ if (overviewPeriod === "today") {
 
 } else if (overviewPeriod === "7") {
   const pastTime = nowTime - 7 * 24 * 60 * 60 * 1000;
-  filtered = tx.filter(t => new Date(t.createdAt).getTime() >= pastTime);
+  filtered = tx.filter(t => new Date(t.createdAt || t.date).getTime() >= pastTime);
 
 } else if (overviewPeriod === "30") {
   const pastTime = nowTime - 30 * 24 * 60 * 60 * 1000;
-  filtered = tx.filter(t => new Date(t.createdAt).getTime() >= pastTime);
+  filtered = tx.filter(t => new Date(t.createdAt || t.date).getTime() >= pastTime);
 
 } else if (overviewPeriod === "all") {
   filtered = [...tx];
