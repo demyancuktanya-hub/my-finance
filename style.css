@@ -167,6 +167,7 @@ body.theme-dark .item{
 .item-title{font-weight:800; font-size:20px}
 .item-sub{color:var(--muted); font-weight:700; margin-top:2px}
 .item-amt{font-weight:900; font-size:22px}
+white-space: nowrap;
 .item-amt.plus{color:var(--green)}
 .item-amt.minus{color:var(--red)}
 
