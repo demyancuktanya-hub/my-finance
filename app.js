@@ -300,6 +300,17 @@ const monthExpense = expense;
    recent.forEach(t => list.appendChild(renderItem(t)));
  }
 }
+function setOverviewPeriod(period) {
+  overviewPeriod = period;
+  localStorage.setItem("mf_overview_period", overviewPeriod);
+
+  // Переключаем активную кнопку
+  document.querySelectorAll(".period-buttons button").forEach(btn => {
+    btn.classList.toggle("active", btn.getAttribute("onclick").includes("'" + period + "'"));
+  });
+
+  renderOverview();
+}
 function renderItem(t){
  const list = t.type === "income" ? INCOME_CATEGORIES : CATEGORIES;
 const cat = list.find(c => c.id === t.categoryId) || { name: "Без категории", icon: "❓" };
