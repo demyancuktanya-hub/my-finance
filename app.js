@@ -180,7 +180,6 @@ function openModal(){
  $("#modal").classList.add("open");
  $("#amountInput").value = "";
  $("#noteInput").value = "";
- $("#amountInput").focus();
 }
 function closeModal(){
  $("#modal").classList.remove("open");
