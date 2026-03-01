@@ -128,11 +128,12 @@ h2{margin:0; font-size:34px}
 }
 .item-left{display:flex; align-items:center; gap:12px}
 .item-ico{
- width:44px;
- height:44px;
- border-radius:14px;
- display:grid;
- place-items:center;
+  width:48px;
+  height:48px;
+  border-radius:16px;
+  display:grid;
+  place-items:center;
+  font-size:24px;
 }
 
 /* LIGHT */
