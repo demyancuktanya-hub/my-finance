@@ -234,12 +234,10 @@ function calc(){
 
  return {balance, monthIncome, monthExpense};
 }
-function getTxDate(t) {
-  // поддерживаем оба варианта: createdAt и date
-  return new Date(t.createdAt || t.date || 0);
-}
+
 function renderOverview(){
  let filtered = [...tx];
+console.log("Все записи:", tx.map(t => t.createdAt));
 const nowTime = Date.now();
 
 if (overviewPeriod === "today") {
@@ -248,17 +246,17 @@ if (overviewPeriod === "today") {
   const startTime = startOfDay.getTime();
 
   filtered = tx.filter(t => {
-    const tTime = new Date(t.createdAt || t.date).getTime();
+    const tTime = new Date(t.createdAt).getTime();
     return tTime >= startTime;
   });
 
 } else if (overviewPeriod === "7") {
   const pastTime = nowTime - 7 * 24 * 60 * 60 * 1000;
-  filtered = tx.filter(t => new Date(t.createdAt || t.date).getTime() >= pastTime);
+  filtered = tx.filter(t => new Date(t.createdAt).getTime() >= pastTime);
 
 } else if (overviewPeriod === "30") {
   const pastTime = nowTime - 30 * 24 * 60 * 60 * 1000;
-  filtered = tx.filter(t => new Date(t.createdAt || t.date).getTime() >= pastTime);
+  filtered = tx.filter(t => new Date(t.createdAt).getTime() >= pastTime);
 
 } else if (overviewPeriod === "all") {
   filtered = [...tx];
@@ -555,6 +553,17 @@ if (btnSeeAll) {
    setPage("history");
  });
 }
+   // Period buttons
+document.querySelectorAll(".period-buttons button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".period-buttons button")
+      .forEach(b => b.classList.remove("active"));
+
+    btn.classList.add("active");
+    overviewPeriod = btn.dataset.period;
+    localStorage.setItem("mf_overview_period", overviewPeriod);
+    renderOverview();
+  });
 });
  setPage("overview");
 }
