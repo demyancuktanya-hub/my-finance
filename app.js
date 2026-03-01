@@ -237,7 +237,7 @@ function calc(){
 
 function renderOverview(){
  let filtered = [...tx];
-console.log("Все записи:", tx.map(t => t.createdAt));
+
 const nowTime = Date.now();
 
 if (overviewPeriod === "today") {
