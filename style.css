@@ -1037,3 +1037,6 @@ body.theme-light input::placeholder {
 .page:not([data-page="profile"]) .profile-only {
  display: none !important;
 }
+#recentList:empty{
+display:none;
+}
